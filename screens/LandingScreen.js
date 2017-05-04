@@ -1,12 +1,29 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View, Text, Button, Image } from 'react-native';
 
-export default class LandingScreen extends React.Component {
+class LandingScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Welcome'
+    }
     render() {
         return (
             <View>
                 <Text>Landing screen!</Text>
+                <Button
+                    title="Login"
+                    onPress={() => {
+                        navigate('Login')
+                    }}
+                ></Button>
+                <Button
+                    title="Create Account"
+                    onPress={() => {
+                        navigate('CreateAccount')
+                    }}
+                ></Button>
             </View>
         );
     }
 }
+
+export default LandingScreen

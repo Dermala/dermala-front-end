@@ -1,24 +1,24 @@
 import React from 'react';
 import { Text, Button, View} from 'react-native';
 
-class PhotoTimelapseScreen extends React.Component {
+class PhotoCaptureScreen extends React.Component {
     static navigationOptions = {
-        title: 'Timelapse'
+        title: 'Create Account'
     };
 
     render() {
         const { navigate } = this.props.navigation;
         return (
             <View>
-                <Text>Progress</Text>
+                <Text>Take Photo</Text>
                 <Button
-                    title="Done"
+                    title="Submit"
                     onPress={() => {
-                        navigate('Home')
+                        navigate('PhotoNotes')
                     }}></Button>
             </View>
         );
     }
 }
 
-export default PhotoTimelapseScreen;
+export default PhotoCaptureScreen;
