@@ -6,6 +6,7 @@ class LandingScreen extends React.Component {
         title: 'Welcome'
     }
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View>
                 <Text>Landing screen!</Text>

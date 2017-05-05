@@ -15,7 +15,8 @@ class CreateAccountScreen extends React.Component {
                     title="Submit"
                     onPress={() => {
                         navigate('Profile')
-                    }}></Button>
+                    }}
+                 ></Button>
             </View>
         );
     }
