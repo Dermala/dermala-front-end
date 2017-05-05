@@ -1,24 +1,64 @@
-import React from 'react';
-import { View, Text, Button, Image } from 'react-native';
+import React, {Component} from 'react';
+import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } from 'react-native';
 
-class LoginScreen extends React.Component {
-    static navigationOptions = {
-        title: 'Login'
-    }
-    render() {
-        const { navigate } = this.props.navigation;
+ export default class LoginScreen extends Component {
+   render() {
         return (
-            <View>
-                <Text>Log into your Account!</Text>
-                <Button
-                    title="Login"
-                    onPress={() => {
-                        navigate('Home')
-                    }}
-                ></Button>
-            </View>
+            <View style={styles.container}>
+              <Text style={styles.title}>
+                  Welcome back, Betty.
+              </Text>
+              <Text style={styles.welcome}>
+                  What is your password?
+              </Text>
+             <TextInput 
+             style={styles.input}
+             placeholder="email"
+             />
+             <TextInput 
+             style={styles.input}
+             placeholder="password"
+             secureTextEntry
+             />
+             <Button
+             
+             title="Forgot Password?"
+             ></Button>
+            
+             <TouchableOpacity style={styles.buttonContainer}>
+                 <Text style={styles.buttonText}>Next</Text>
+            </TouchableOpacity>
+             </View>
+             
+            
         );
     }
 }
 
-export default LoginScreen
+ 
+const styles  = StyleSheet.create({
+    container: {
+        padding:20
+    },
+    title: {
+        fontSize: 21,
+        textAlign: 'center',
+        margin: 10,
+    },
+    welcome: {
+        fontSize: 21,
+        textAlign: 'center'
+    },
+    input:{
+        height: 40,
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        marginBottom: 50,
+        marginTop: 50
+    },
+    buttonContainer: {
+        backgroundColor: '#dee5c9'
+    },
+    buttonText: {
+        textAlign: 'center'
+    }
+});
