@@ -3,7 +3,7 @@ import { Text, Button, View} from 'react-native';
 
 class PhotoCaptureScreen extends React.Component {
     static navigationOptions = {
-        title: 'Create Account'
+        title: 'Take Photo'
     };
 
     render() {
