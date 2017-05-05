@@ -6,8 +6,8 @@ class LoginScreen extends React.Component {
         title: 'Login'
     }
     render() {
-      const { navigate } = this.props.navigation;
-      return (
+        const { navigate } = this.props.navigation;
+        return (
             <View>
                 <Text>Log into your Account!</Text>
                 <Button
