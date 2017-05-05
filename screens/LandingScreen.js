@@ -8,24 +8,34 @@ class LandingScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={ styles.container }>
-                <Image
-                    style={styles.icon}
-                    source={require('../assets/logo/Dermala Icon.png')}
-                />
-                <Text style={{textAlign: 'center'}}>Landing screen!</Text>
-                <Button
-                    title="Login"
-                    onPress={() => {
-                        navigate('Login')
-                    }}
-                ></Button>
-                <Button
-                    title="Create Account"
-                    onPress={() => {
-                        navigate('CreateAccount')
-                    }}
-                ></Button>
+            <View style={ styles.mainContainer}>
+                <View style={ styles.iconContainer }>
+                    <Image
+                        style={ styles.icon }
+                        source={require('../assets/logo/Dermala Icon.png')}
+                    />
+                </View>
+                <View style={ styles.logoContainer}>
+                    <Image
+                        style={ styles.logo }
+                        source={require('../assets/logo/Dermala Logo.png')}
+                    />
+                    <Text style={ styles.header}>Acne Tracker</Text>
+                </View>
+                <View style={ styles.contentContainer }>
+                    <Button
+                        title="Create Account"
+                        onPress={() => {
+                            navigate('CreateAccount')
+                        }}
+                    ></Button>
+                    <Button
+                        title="Login"
+                        onPress={() => {
+                            navigate('Login')
+                        }}
+                    ></Button>
+                </View>
             </View>
         );
     }
@@ -34,15 +44,35 @@ class LandingScreen extends React.Component {
 export default LandingScreen
 
 var styles = StyleSheet.create({
-  container: {
+  mainContainer: {
         flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#f8f2f2',
+        backgroundColor: '#f8f2f2'
+    },
+    iconContainer: {
+        flex: 2,
         alignItems: 'center',
-        justifyContent: 'center'
+        paddingTop: 50,  
+    },
+    logoContainer: {
+        flex: 1,
+        alignItems: 'center',   
+    },
+    contentContainer: {
+        flex: 1,
+        alignItems: 'center',
     },
     icon: {
-        height: 150, 
-        width: 150
-    }
+        height: 197.75,
+        width: 200,
+    },
+    logo: {
+        height: 30,
+        width: 150,
+    },
+    header: {
+        fontSize: 25,
+        letterSpacing: 1,
+        fontWeight: '200',
+        textAlign: 'center'
+    },
 });
