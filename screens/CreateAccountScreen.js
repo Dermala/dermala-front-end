@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text  } from 'react-native';
+import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } from 'react-native';
 
- export default class LoginScreen extends Component {
+ export default class CreateAccountScreen extends Component {
+     static navigationOptions = {
+         title: 'Create Account'
+     };
    render() {
+       const { navigate } = this.props.navigation;
+
         return (
+         <View style={styles.mainContainer}>
             <View style={styles.container}>
               <Text style={styles.welcome}>
                 Lets start by signing you in.
@@ -11,25 +17,30 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text  } from 'rea
               <Text style={styles.instructions}>
                 What is your email?
               </Text>
-            
+            <Text>Email</Text>
              <TextInput 
-             placeholder="email"
               style={styles.input}
              />
+             <Text>Password</Text>
              <TextInput 
-             placeholder="password"
              secureTextEntry
               style={styles.input}
              />
+             <Text>Confirm Password</Text>
              <TextInput 
-             placeholder=" confirm password"
              secureTextEntry
               style={styles.input}
              />
-             <TouchableOpacity style={styles.buttonContainer}>
-                 <Text style={styles.buttonText}>Next</Text>
-            </TouchableOpacity>
-             </View>
+               <TouchableOpacity style={styles.buttonContainer}>
+                  <Button
+                  title="Next >"
+                  onPress={() =>{
+                     navigate('Profile', {productId: ''})
+                 }}></Button>
+                </TouchableOpacity>
+              </View>
+            </View>
+
              
             
         );
@@ -37,7 +48,11 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text  } from 'rea
 }
 
  
-const styles  = StyleSheet.create({
+var styles  = StyleSheet.create({
+      mainContainer: {
+        flex: 1,
+        backgroundColor: '#f8f2f2'
+    },
     container: {
         padding:20
     },
@@ -56,8 +71,9 @@ const styles  = StyleSheet.create({
     },
     input:{
         height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 20
+        backgroundColor: '#f8f8ff',
+        marginBottom: 20,
+        marginTop: 20
     },
     buttonContainer: {
         backgroundColor: '#dee5c9'
