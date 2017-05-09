@@ -9,10 +9,12 @@ import PhotoCaptureScreen from './screens/PhotoCaptureScreen.js';
 import PhotoNotesScreen from './screens/PhotoNotesScreen.js';
 import PhotoTimelapseScreen from './screens/PhotoTimelapseScreen.js';
 import ProductsScreen from './screens/ProductsScreen.js';
+import SplashScreen from './screens/SplashScreen.js';
 
 
 const App = StackNavigator({
- Landing: { screen: LandingScreen },
+  Landing: { screen: LandingScreen },
+  Splash: { screen: SplashScreen },
   PhotoNotes: { screen: PhotoNotesScreen },
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
