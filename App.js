@@ -15,10 +15,7 @@ import SplashScreen from './screens/SplashScreen.js';
 const App = StackNavigator({
   Landing: { screen: LandingScreen },
   Splash: { screen: SplashScreen },
-  Landing: { screen: LandingScreen },
-  Home: { screen: HomeScreen },
   PhotoNotes: { screen: PhotoNotesScreen },
-  Splash: {screen: SplashScreen },
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   CreateAccount: { screen: CreateAccountScreen },
