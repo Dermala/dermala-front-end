@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View, Image } from 'react-native';
+import { ImagePicker } from 'expo';
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -13,16 +14,13 @@ class HomeScreen extends React.Component {
             <View style={ styles.mainContainer }>            
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon}>
-                            <Image
-                                source={require('../assets/icons/camera-1.png')}
-                            />
-                        </View>
                         <Button
                             title="Take a Photo >"
-                            onPress={() => {
-                                navigate('PhotoCapture', { productId: 'Sabrina and Pamela are cool, yo' })
-                            }}></Button>
+                            onPress={this._pickImage}
+                        />
+                        <View style={ styles.icon }>
+                        <Image source={require('../assets/icons/camera-1.png')} />
+                        </View>
                     </View>
                     <View style={ styles.tipsContainer }>
                         <View style={ styles.icon }>
@@ -82,7 +80,16 @@ class HomeScreen extends React.Component {
                 </View>
             </View>
         );
+    
     }
+
+     _pickImage = async() =>{
+        let result = await ImagePicker.launchCameraAsync({
+           allowsEditing: true,
+           aspect: [4,3], 
+        });
+
+        }
 }
 
 export default HomeScreen;
