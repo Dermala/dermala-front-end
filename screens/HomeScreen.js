@@ -1,7 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, Button, View, Image } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
-import LinearGradient from 'react-native-linear-gradient';
 
 class HomeScreen extends React.Component {
     static navigationOptions = {

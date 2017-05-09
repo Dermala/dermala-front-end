@@ -34,7 +34,11 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
              ></Button>
             
              <TouchableOpacity style={styles.buttonContainer}>
-                 <Text style={styles.buttonText}>Next ></Text>
+                 <Button
+                 title="Next >"
+                 onPress={() =>{
+                     navigate('Home', {productId:''})
+                 }}></Button>
             </TouchableOpacity>
          </View>
         </View>
