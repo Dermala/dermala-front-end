@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } from 'react-native';
 
- export default class LoginScreen extends Component {
+ export default class LoginScreen extends React.Component {
+     static navigationOptions = {
+         title: 'Login'
+     }
    render() {
+       const {navigate} = this.props.navigation;
+        
         return (
+         <View style={ styles.mainContainer}>
             <View style={styles.container}>
               <Text style={styles.title}>
                   Welcome back, Betty.
@@ -21,26 +27,33 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
              secureTextEntry
              />
              <Button
-             
-             title="Forgot Password?"
+                title="Forgot Password?"
+                onPress={() => {
+                  navigate('Login',)
+                  }}
              ></Button>
             
              <TouchableOpacity style={styles.buttonContainer}>
-                 <Text style={styles.buttonText}>Next</Text>
+                 <Text style={styles.buttonText}>Next ></Text>
             </TouchableOpacity>
-             </View>
-             
+         </View>
+        </View>
             
         );
     }
 }
 
- 
-const styles  = StyleSheet.create({
+
+
+var styles  = StyleSheet.create({
+     mainContainer: {
+        flex: 1,
+        backgroundColor: '#f8f2f2'
+    },
     container: {
         padding:20
     },
-    title: {
+   title: {
         fontSize: 21,
         textAlign: 'center',
         margin: 10,
@@ -51,14 +64,16 @@ const styles  = StyleSheet.create({
     },
     input:{
         height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
-        marginBottom: 50,
-        marginTop: 50
+        backgroundColor: '#f8f8ff',
+        marginBottom: 20,
+        marginTop: 20
     },
     buttonContainer: {
         backgroundColor: '#dee5c9'
     },
     buttonText: {
-        textAlign: 'center'
+        fontSize: 19,
+        textAlign: 'center',
+        marginBottom: 20
     }
 });

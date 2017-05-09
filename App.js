@@ -1,7 +1,6 @@
 import { StackNavigator } from 'react-navigation';
-
-import HomeScreen from './screens/HomeScreen.js';
 import LandingScreen from './screens/LandingScreen.js';
+import HomeScreen from './screens/HomeScreen.js';
 import LoginScreen from './screens/LoginScreen.js';
 import CreateAccountScreen from './screens/CreateAccountScreen.js';
 import ProfileScreen from './screens/ProfileScreen.js';
@@ -16,6 +15,7 @@ const App = StackNavigator({
   Home: { screen: HomeScreen },
   PhotoNotes: { screen: PhotoNotesScreen },
   Landing: { screen: LandingScreen },
+  Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   CreateAccount: { screen: CreateAccountScreen },
   Profile: { screen: ProfileScreen },
