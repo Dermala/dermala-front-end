@@ -14,13 +14,13 @@ import ProductsScreen from './screens/ProductsScreen.js';
 
 const App = StackNavigator({
   Home: { screen: HomeScreen },
+  PhotoNotes: { screen: PhotoNotesScreen },
   Landing: { screen: LandingScreen },
   Login: { screen: LoginScreen },
   CreateAccount: { screen: CreateAccountScreen },
   Profile: { screen: ProfileScreen },
   PhotoAlbum: { screen: PhotoAlbumScreen },
-  PhotoCapture: { screen: PhotoCaptureScreen },
-  PhotoNotes: { screen: PhotoNotesScreen },
+  PhotoCapture: { screen: PhotoCaptureScreen },  
   PhotoTimelapse: { screen: PhotoTimelapseScreen },
   Products: { screen: ProductsScreen }
 })
