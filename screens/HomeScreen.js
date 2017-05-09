@@ -97,8 +97,6 @@ var styles = StyleSheet.create({
         alignItems: 'stretch',
 
     },
-    linearGradient: {
-    },
     sectionContainer: {
         flex: 1,
         flexDirection: 'row',

@@ -73,10 +73,10 @@ var styles  = StyleSheet.create({
         height: 40,
         backgroundColor: '#f8f8ff',
         marginBottom: 20,
-        marginTop: 20
+        marginTop: 20,
     },
     buttonContainer: {
-        backgroundColor: '#dee5c9'
+        backgroundColor: '#dee5c9',
     },
     buttonText: {
         textAlign: 'center'
