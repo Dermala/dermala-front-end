@@ -13,25 +13,22 @@ export default class ProfileScreen extends Component {
         return (
             <View style={styles.mainContainer}>
                 <View style={styles.container}>
-                 <Text style={styles.title}>
-                   Name
-                 </Text>
+                 <Text>Name</Text>
                  <TextInput 
                  style={styles.input}
                  />
-                <Text>
-                     Skin Type</Text>
+                <Text>Skin Type</Text>
                     <ModalDropdown
-                    style={styles.container}
+                    style={styles.dropDownContainer}
                     options={['Normal','Oily','Combination','Sensitive','Dry']}
                     />
                  <Text>Acne Type</Text> 
                     <ModalDropdown  
-                    style={styles.container}
+                    style={styles.dropDownContainer}
                     options={['Blackheads', 'Whiteheads' , 'Cystic acne', 'Frequent Acne', 'Occassional Acne']}/>
                 <Text>Typical Breakout Zone</Text>
                     <ModalDropdown  
-                    style={styles.container}
+                    style={styles.dropDownContainer}
                     options={['Forehead', 'Temples' , 'Cheeks', 'Hairline', 'Nose','Jaw','Chin']}/>
 
                 <TouchableOpacity style={styles.buttonContainer}>
@@ -54,13 +51,20 @@ var styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#f8f2f2'
     },
-    container:{
-        padding: 20
+     container:{
+        padding: 20,
+    },
+    dropDownContainer: {
+        height: 40,
+        backgroundColor: '#f8f8ff',
+        marginBottom: 20,
+        marginTop: 20
     },
     input: {
         height: 40,
         backgroundColor: '#f8f8ff',
         marginBottom: 20,
+        marginTop: 20
     },
     buttonContainer: {
         backgroundColor: '#dee5c9',

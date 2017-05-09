@@ -12,9 +12,8 @@ import ProductsScreen from './screens/ProductsScreen.js';
 
 
 const App = StackNavigator({
-  Home: { screen: HomeScreen },
+ Landing: { screen: LandingScreen },
   PhotoNotes: { screen: PhotoNotesScreen },
-  Landing: { screen: LandingScreen },
   Home: { screen: HomeScreen },
   Login: { screen: LoginScreen },
   CreateAccount: { screen: CreateAccountScreen },

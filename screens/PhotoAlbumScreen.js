@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, View} from 'react-native';
+import { Text, Button, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 class PhotoAlbumScreen extends React.Component {
     static navigationOptions = {
@@ -10,15 +10,22 @@ class PhotoAlbumScreen extends React.Component {
         const { navigate } = this.props.navigation;
         return (
             <View>
-                <Text>See Photos</Text>
-                <Button
-                    title="Submit"
+                <TouchableOpacity style={styles.buttonContainer}>
+                     <Button
+                    title="View Timelapse"
                     onPress={() => {
-                        navigate('PhotoCapture')
+                        navigate('PhotoTimelapse', {productId: ''})
                     }}></Button>
+                </TouchableOpacity>
             </View>
         );
     }
 }
 
 export default PhotoAlbumScreen;
+
+var styles =StyleSheet.create({
+    buttonContainer: {
+        backgroundColor: '#dee5c9'
+    }
+})
