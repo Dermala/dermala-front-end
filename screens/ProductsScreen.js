@@ -1,67 +1,123 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, Image, Button } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 
 class ProductsScreen extends React.Component {
     state = {  }
     render() {
         const { navigate } = this.props.navigation;
         return (
+            
             <View style={ styles.mainContainer }>            
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon}>
-                            <Image
+                        <Svg height="150" width="150">
+                        <Circle
+                            cx="70"
+                            cy="70"
+                            r="70"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
                                 style = { styles.image }
                                 source={require('../assets/images/Group 2.png')}
                             />
-                        </View>
+                        <Text>Package</Text>
+                        </Svg>
                     </View>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon }>
-                            <Image
+                        <Svg height="150" width="150">
+                        <Circle
+                            cx="70"
+                            cy="70"
+                            r="70"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
                                 style = { styles.image }
                                 source={require('../assets/images/Jar with Pads.png')}
                             />
-                        </View>                       
+                        <Text>Package</Text>
+                        </Svg>                      
                     </View>
                 </View>
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon }>
-                            <Image
+                        <Svg height="150" width="150">
+                        <Circle
+                            cx="70"
+                            cy="70"
+                            r="70"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
                                 style = { styles.image }
                                 source={require('../assets/images/Probiotic.png')}
                             />
-                        </View>
+                        <Text>Package</Text>
+                        </Svg>
                     </View>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon }>
-                            <Image
+                        <Svg height="150" width="150">
+                        <Circle
+                            cx="70"
+                            cy="70"
+                            r="70"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
                                 style = { styles.image }
                                 source={require('../assets/images/Spot Treatment.png')}
                             />
-                        </View>                       
+                        <Text>Package</Text>
+                        </Svg>                      
                     </View>
                 </View>
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon }>
-                            <Image
+                        <Svg height="150" width="150">
+                        <Circle
+                            cx="70"
+                            cy="70"
+                            r="70"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
                                 style = { styles.image }
                                 source={require('../assets/images/Packet.png')}
                             />
-                        </View>
+                        <Text>Package</Text>
+                        </Svg> 
                     </View>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon }>
-                            <Image
+                        <Svg height="150" width="150">
+                        <Circle
+                            cx="70"
+                            cy="70"
+                            r="70"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
                                 style = { styles.image }
                                 source={require('../assets/images/Zinc.png')}
                             />
-                        </View>                       
+                        <Text>Package</Text>
+                        </Svg>                       
                     </View>
                 </View>
-            </View>
+            </View>           
         );
     }
 }
@@ -79,18 +135,14 @@ var styles = StyleSheet.create({
     sectionContainer: {
         flex: 1,
         flexDirection: 'row',
-        alignItems: 'stretch',
+        alignItems: 'center',
         justifyContent: 'center',
-        borderStyle: 'solid',
-        borderColor: 'white',
-        borderWidth: 1,
     },
     photoContainer: {
         flex: 1,
-        alignItems: 'stretch',
-        borderStyle: 'solid',
-        borderColor: 'white',
-        borderWidth: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        
     },
     icon: {
         flex: 1,
@@ -98,7 +150,9 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
     },
     image: {
-        height: 100, 
-        width: 100,
+        flex: 1,
+        width: null,
+        height: null,
+        resizeMode: 'contain',
     }
 });
