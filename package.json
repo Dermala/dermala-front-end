@@ -27,6 +27,7 @@
     "react-native-icon-button": "^1.0.0",
     "react-native-linear-gradient": "^2.0.0",
     "react-native-modal-dropdown": "^0.4.2",
+    "react-native-multiple-choice": "0.0.8",
     "react-native-simple-radio-button": "^2.5.0-alpha.1",
     "react-native-snap-carousel": "^2.1.2",
     "react-native-star-rating": "^1.0.7",

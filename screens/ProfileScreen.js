@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, Button, View, TextInput,TouchableOpacity} from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
+import MultipleChoice from 'react-native-multiple-choice';
 
 export default class ProfileScreen extends Component {
     static navigationOptions = {
@@ -22,10 +23,27 @@ export default class ProfileScreen extends Component {
                     style={styles.dropDownContainer}
                     options={['Normal','Oily','Combination','Sensitive','Dry']}
                     />
-                 <Text>Acne Type</Text> 
-                    <ModalDropdown  
-                    style={styles.dropDownContainer}
-                    options={['Blackheads', 'Whiteheads' , 'Cystic acne', 'Frequent Acne', 'Occassional Acne']}/>
+                 <View style={styles.dropDownContainer}>
+                    <ModalDropdown>
+                    <MultipleChoice
+                    options={[
+                        'Blackheads', 
+                        'Whiteheads' , 
+                        'Cystic acne', 
+                        'Frequent Acne', 
+                        'Occassional Acne'
+                        ]}
+                        selectedOptions={['options']}
+                        maxSelectedOptions={3}
+                    />
+                    </ModalDropdown>
+                </View> 
+                        
+                        
+                        
+               
+                    
+                  
                 <Text>Typical Breakout Zone</Text>
                     <ModalDropdown  
                     style={styles.dropDownContainer}

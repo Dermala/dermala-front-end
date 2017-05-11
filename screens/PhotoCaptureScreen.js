@@ -6,12 +6,9 @@ class PhotoCaptureScreen extends React.Component {
     state = {
         image: null,
     }
-    
-    
     static navigationOptions = {
         title: 'Timelapse'
     };
-
     render() {
         let { image } = this.state;
 
@@ -35,6 +32,4 @@ class PhotoCaptureScreen extends React.Component {
 
         }
     }
-
-
 export default PhotoCaptureScreen;

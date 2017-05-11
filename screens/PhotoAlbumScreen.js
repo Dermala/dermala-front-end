@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, Button, View, StyleSheet, TouchableOpacity} from 'react-native';
+import { Text, Button, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { ImagePicker } from 'expo';
+
 
 class PhotoAlbumScreen extends React.Component {
     static navigationOptions = {
@@ -9,22 +11,76 @@ class PhotoAlbumScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View>
-                <TouchableOpacity style={styles.buttonContainer}>
-                     <Button
-                    title="View Timelapse"
-                    onPress={() => {
-                        navigate('PhotoTimelapse', {productId: ''})
-                    }}></Button>
-                </TouchableOpacity>
+             <View style={ styles.mainContainer }>            
+                <View style={ styles.sectionContainer }>
+                    <View style={ styles.photoContainer }>
+                        <Button
+                            title="Add Image"
+                            onPress={this._pickImage}
+                        />
+                        <View style={ styles.icon }>
+                            <Image source={require('../assets/icons/add.png')}/>
+                        </View>
+                    </View>
+                    <View style={ styles.photoContainer }>                      
+                    </View>
+                </View>
+                <View style={ styles.sectionContainer }>
+                </View>
+                <View style={ styles.sectionContainer }>
+                    <TouchableOpacity style={styles.buttonContainer}>
+                        <Button
+                            title="View Timelapse"
+                            onPress={() => {
+                            navigate('PhotoTimelapse', {productId: ''})
+                            }}></Button>
+                    </TouchableOpacity>
+                </View>
             </View>
+           
         );
     }
+
+     _pickImage = async() =>{
+        let result = await ImagePicker.launchCameraAsync({
+           allowsEditing: true,
+           aspect: [4,3], 
+        });
+
+        }
 }
 
 export default PhotoAlbumScreen;
 
 var styles =StyleSheet.create({
+    mainContainer: {
+        flex: 1,
+        backgroundColor: '#f8f2f2',
+        flexDirection: 'column',
+        alignItems: 'stretch'
+    },
+    sectionContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        justifyContent: 'center',
+
+    },
+    photoContainer: {
+        flex: 1,
+        alignItems: 'stretch',
+
+    },
+    icon: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    image: {
+        flex: 1,
+        height: 60, 
+        width: 60,
+    },
     buttonContainer: {
         backgroundColor: '#dee5c9'
     }
