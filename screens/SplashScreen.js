@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, Image, TextInput } from 'react-native';
+import { StyleSheet, View, Text, Image} from 'react-native';
 
 class SplashScreen extends React.Component {
-    static navigationOptions = {
-        title: 'Welcome'
+    componentWillMount () {
+        setTimeout(() => {
+            this.props.navigation.navigate('Landing')
+        }, 500);
     }
+
     render() {
         const { navigate } = this.props.navigation;
         return (
@@ -27,7 +30,7 @@ class SplashScreen extends React.Component {
     }
 }
 
-export default SplashScreen
+export default SplashScreen;
 
 var styles = StyleSheet.create({
   mainContainer: {
