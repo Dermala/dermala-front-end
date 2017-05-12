@@ -11,28 +11,32 @@ class ProductsScreen extends React.Component {
             <View style={ styles.mainContainer }>            
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <Svg height="150" width="150">
+                        <Svg height="100" width="100">
                         <Circle
-                            cx="70"
-                            cy="70"
-                            r="70"
+                            cx="50"
+                            cy="50"
+                            r="50"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
-                        />
-                        <Image
+                            />
+                            <Image
                                 style = { styles.image }
                                 source={require('../assets/images/Group 2.png')}
                             />
-                        <Text>Package</Text>
-                        </Svg>
+                        </Svg>                       
+                        <View style={ styles.text }>
+                            <Text style={{ textAlign: 'center' }}>Complete Acne Clearing System</Text>
+                            <Text>$49.99</Text>
+                        </View>
+                       
                     </View>
                     <View style={ styles.photoContainer }>
-                        <Svg height="150" width="150">
+                        <Svg height="100" width="100">
                         <Circle
-                            cx="70"
-                            cy="70"
-                            r="70"
+                            cx="50"
+                            cy="50"
+                            r="50"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -41,17 +45,20 @@ class ProductsScreen extends React.Component {
                                 style = { styles.image }
                                 source={require('../assets/images/Jar with Pads.png')}
                             />
-                        <Text>Package</Text>
-                        </Svg>                      
+                        </Svg>  
+                        <View style={ styles.text }>
+                            <Text style={{ textAlign: 'center' }}>Acne Treatment Pads</Text>
+                            <Text>$29.99</Text>
+                        </View>                    
                     </View>
                 </View>
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <Svg height="150" width="150">
+                        <Svg height="100" width="100">
                         <Circle
-                            cx="70"
-                            cy="70"
-                            r="70"
+                            cx="50"
+                            cy="50"
+                            r="50"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -60,15 +67,18 @@ class ProductsScreen extends React.Component {
                                 style = { styles.image }
                                 source={require('../assets/images/Probiotic.png')}
                             />
-                        <Text>Package</Text>
                         </Svg>
+                        <View style={ styles.text }>
+                            <Text style={{ textAlign: 'center' }}>Advanced Probiotics</Text>
+                            <Text>$19.99</Text>
+                        </View>
                     </View>
                     <View style={ styles.photoContainer }>
-                        <Svg height="150" width="150">
+                        <Svg height="100" width="100">
                         <Circle
-                            cx="70"
-                            cy="70"
-                            r="70"
+                            cx="50"
+                            cy="50"
+                            r="50"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -77,17 +87,20 @@ class ProductsScreen extends React.Component {
                                 style = { styles.image }
                                 source={require('../assets/images/Spot Treatment.png')}
                             />
-                        <Text>Package</Text>
-                        </Svg>                      
+                        </Svg> 
+                        <View style={ styles.text }> 
+                            <Text style={{ textAlign: 'center' }}>Acne Spot Treatment</Text>
+                            <Text>$14.99</Text>
+                        </View>                     
                     </View>
                 </View>
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <Svg height="150" width="150">
+                        <Svg height="100" width="100" style={styles.circles}>
                         <Circle
-                            cx="70"
-                            cy="70"
-                            r="70"
+                            cx="50"
+                            cy="50"
+                            r="50"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -96,15 +109,18 @@ class ProductsScreen extends React.Component {
                                 style = { styles.image }
                                 source={require('../assets/images/Packet.png')}
                             />
-                        <Text>Package</Text>
                         </Svg> 
+                        <View style={ styles.text }>
+                            <Text style={{ textAlign: 'center' }}>Acne Pimple Patches</Text>
+                            <Text>$9.99</Text>
+                        </View>
                     </View>
                     <View style={ styles.photoContainer }>
-                        <Svg height="150" width="150">
+                        <Svg height="100" width="100">
                         <Circle
-                            cx="70"
-                            cy="70"
-                            r="70"
+                            cx="50"
+                            cy="50"
+                            r="50"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -113,8 +129,11 @@ class ProductsScreen extends React.Component {
                                 style = { styles.image }
                                 source={require('../assets/images/Zinc.png')}
                             />
-                        <Text>Package</Text>
-                        </Svg>                       
+                        </Svg>  
+                        <View style={ styles.text }>
+                            <Text style={{ textAlign: 'center' }}>Zinc</Text>
+                            <Text>$9.99</Text>
+                        </View>                     
                     </View>
                 </View>
             </View>           
@@ -130,29 +149,43 @@ var styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#f8f2f2',
         alignItems: 'stretch',
-
     },
+
     sectionContainer: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingTop: 10
     },
+
     photoContainer: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
-        
+        justifyContent: 'center',        
     },
+
     icon: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
+
     image: {
         flex: 1,
         width: null,
         height: null,
         resizeMode: 'contain',
+    },
+
+    circles: {
+        padding: 20,
+    },
+
+    text: {
+        flex: .5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 130
     }
 });

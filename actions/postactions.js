@@ -20,9 +20,12 @@ export function updatePost(post) {
         payload: postApi.updatePost(post)
     };
 }
+
 export function deletePost(post) {
     return {
         type: "DELETE_POST",
         payload: postApi.deletePost(post)
     };
 }
+
+export function addNotes

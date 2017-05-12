@@ -26,20 +26,19 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
              placeholder="password"
              secureTextEntry
              />
-             <Button
-                title="Forgot Password?"
-                onPress={() => {
-                  navigate('Login',)
-                  }}
-             ></Button>
-            
              <TouchableOpacity style={styles.buttonContainer}>
                  <Button
                  title="Next >"
                  onPress={() =>{
                      navigate('Home', {productId:''})
-                 }}></Button>
+                 }}/>
             </TouchableOpacity>
+             <Button
+                style={ styles.forgotButton }
+                title="Forgot Password?"
+                onPress={() => {
+                  navigate('Login',)
+                  }}/> 
          </View>
         </View>
             
@@ -73,11 +72,16 @@ var styles  = StyleSheet.create({
         marginTop: 20
     },
     buttonContainer: {
-        backgroundColor: '#dee5c9'
+        backgroundColor: '#dee5c9',
+        borderRadius: 5,
     },
     buttonText: {
         fontSize: 19,
         textAlign: 'center',
         marginBottom: 20
+    },
+    forgotButton: {
+        fontSize: 12,
+        textAlign: 'left',
     }
 });

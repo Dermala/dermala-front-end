@@ -13,16 +13,10 @@ class PhotoAlbumScreen extends React.Component {
         return (
              <View style={ styles.mainContainer }>            
                 <View style={ styles.sectionContainer }>
-                    <View style={ styles.photoContainer }>
-                        <Button
-                            title="Add Image"
-                            onPress={this._pickImage}
-                        />
-                        <View style={ styles.icon }>
-                            <Image source={require('../assets/icons/add.png')}/>
-                        </View>
-                    </View>
-                    <View style={ styles.photoContainer }>                      
+                    <View style={ styles.photoContainer }> 
+                        <Image 
+                            style={ styles.icon }
+                            source={require('../assets/icons/add.png')}/>                     
                     </View>
                 </View>
                 <View style={ styles.sectionContainer }>
@@ -34,6 +28,11 @@ class PhotoAlbumScreen extends React.Component {
                             onPress={() => {
                             navigate('PhotoTimelapse', {productId: ''})
                             }}></Button>
+                        <View>
+                            <Image 
+                            style={ styles.icon }
+                            source={require('../assets/icons/add.png')}/>
+                        </View>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -75,6 +74,7 @@ var styles =StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        
     },
     image: {
         flex: 1,

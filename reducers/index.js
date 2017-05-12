@@ -1,4 +1,4 @@
-const initialState = 1;
+import { combineReducers } from 'redux';
 
 import loginReducer from './loginReducer';
 import navReducer from './navReducer';
