@@ -1,7 +1,15 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } from 'react-native';
+import { connect } from 'react-redux';
+import background from '../assets/logo/Background Fade.png';
 
- export default class LoginScreen extends React.Component {
+import {login, changeField } from '../actions/authActions';
+
+class LoginScreen extends React.Component {
+     updateInput = (ev) => {
+
+     }
+     
      static navigationOptions = {
          title: 'Login'
      }
@@ -17,25 +25,32 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
               <Text style={styles.welcome}>
                   What is your password?
               </Text>
-             <TextInput 
-             style={styles.input}
-             placeholder="email"
-             />
-             <TextInput 
-             style={styles.input}
-             placeholder="password"
-             secureTextEntry
-             />
+             <View>
+                <TextInput 
+                placeholder="Email"
+                style={ styles.input }
+                keyboardType='email-address'
+                value={ this.props.email }
+                onChangeText={(text) => this.props.changeField('email', text)}
+                underlineColorAndroid='transparent'/>
+             </View>
+             <View>
+                <TextInput 
+                placeholder="password"          
+                secureTextEntry
+                style={styles.input}
+                value={ this.props.password }
+                onChangeText={(text) => this.props.changeField('password', text)} 
+                underlineColorAndroid='transparent'/>
+            </View>
              <TouchableOpacity style={styles.buttonContainer}>
                  <Button
-                 title="Next >"
-                 onPress={() =>{
-                     navigate('Home', {productId:''})
-                 }}/>
+                 title='Next >'
+                 onPress={() => this.props.login(this.props.email, this.props.password)}/>
             </TouchableOpacity>
              <Button
                 style={ styles.forgotButton }
-                title="Forgot Password?"
+                title='Forgot Password?'
                 onPress={() => {
                   navigate('Login',)
                   }}/> 
@@ -45,8 +60,6 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
         );
     }
 }
-
-
 
 var styles  = StyleSheet.create({
      mainContainer: {
@@ -64,6 +77,9 @@ var styles  = StyleSheet.create({
     welcome: {
         fontSize: 21,
         textAlign: 'center'
+    },
+    inputWrap: {
+
     },
     input:{
         height: 40,
@@ -85,3 +101,17 @@ var styles  = StyleSheet.create({
         textAlign: 'left',
     }
 });
+
+const mapStateToProps = state => ({
+    ...state.login
+});
+
+const mapDispatchToProps = dispatch => ({
+    login: (email, password) => dispatch(login(email, password)),
+    changeField: (key, value) => dispatch(changeField(key, value))
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(LoginScreen);
