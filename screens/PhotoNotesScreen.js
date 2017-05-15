@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Button, View} from 'react-native';
 import CheckBox from 'react-native-checkbox';
+import 
 
 class PhotoNotesScreen extends React.Component {
     static navigationOptions = {
@@ -12,6 +13,14 @@ class PhotoNotesScreen extends React.Component {
         return (
             <View>
                 <Text>Rate your Skin</Text>
+                <StarRating
+                    maxStars={5}
+                    rating={}
+                    selectStar={require('./select_star.png')}
+                    unSelectStar={require('./unselect_star.png')}
+                    valueChanged={this._valueChanged}
+                    starSize={25}
+                    />
                 <CheckBox
                     label='I did not wash my face today.'
                     checked={false}
@@ -20,22 +29,22 @@ class PhotoNotesScreen extends React.Component {
                     />
                 <CheckBox
                     label='I did not use acne products today.'
-                    checked={true}
+                    checked={false}
                     onChange={(checked) => console.log('I am checked', checked)}
                     />
                 <CheckBox
                     label='I had more sun exposure than usual.'
-                    checked={true}
+                    checked={false}
                     onChange={(checked) => console.log('I am checked', checked)}
                     />
                 <CheckBox
                     label='I worked out/sweat today.'
-                    checked={true}
+                    checked={false}
                     onChange={(checked) => console.log('I am checked', checked)}
                     />
                 <CheckBox
                     label='I forgot to wash my face today.'
-                    checked={true}
+                    checked={false}
                     onChange={(checked) => console.log('I am checked', checked)}
                     />
                 <CheckBox
@@ -58,5 +67,14 @@ class PhotoNotesScreen extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    ...state.notes
+});
+
+const mapDispatchToProps = dispatch => ({
+    select: () => dispatch(),
+    changeField: (key, value) => dispatch(changeField(key, value))
+});
 
 export default PhotoNotesScreen;

@@ -21,7 +21,7 @@ const AppNavigator = StackNavigator({
     CreateAccount: { screen: CreateAccountScreen },
     Profile: { screen: ProfileScreen },
     Home: { screen: HomeScreen }, 
-   
+    
     PhotoAlbum: { screen: PhotoAlbumScreen },
     PhotoTimelapse: { screen: PhotoTimelapseScreen },
     Reminders: { screen: ReminderScreen }, 

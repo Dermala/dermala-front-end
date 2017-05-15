@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "bower install"
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "devDependencies": {
     "jest-expo": "^0.4.0",
@@ -11,13 +15,6 @@
     "react-test-renderer": "16.0.0-alpha.6"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
-  "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
-  },
   "jest": {
     "preset": "jest-expo"
   },
@@ -37,9 +34,9 @@
     "react-native-linear-gradient": "^2.0.0",
     "react-native-modal-dropdown": "^0.4.2",
     "react-native-multiple-choice": "0.0.8",
+    "react-native-rating-star": "^0.2.1",
     "react-native-simple-radio-button": "^2.5.0-alpha.1",
     "react-native-snap-carousel": "^2.1.2",
-    "react-native-star-rating": "^1.0.7",
     "react-native-svg": "^5.1.8",
     "react-native-swiper": "^1.5.4",
     "react-native-vector-icons": "^4.1.1",
