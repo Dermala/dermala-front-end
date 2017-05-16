@@ -3,6 +3,7 @@ import { Text, Button, View, Image} from 'react-native';
 import { ImagePicker } from 'expo';
 
 class PhotoCaptureScreen extends React.Component {
+
     state = {
         image: null,
     }

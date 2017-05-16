@@ -10,6 +10,7 @@ class PhotoAlbumScreen extends React.Component {
 
     render() {
         const { navigate } = this.props.navigation;
+        
         return (
              <View style={ styles.mainContainer }>            
                 <View style={ styles.sectionContainer }>
@@ -74,6 +75,7 @@ var styles =StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        
         
     },
     image: {

@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, ScrollView, Button, Text, View, Image } from 'react-native';
 import { ImagePicker } from 'expo';
+import { RNS3 } from 'react-native-aws3';
+import uuid from 'uuid/v1';
+import { addPost } from '../actions/postActions';
 import Svg, { Circle } from 'react-native-svg';
 import Carousel from 'react-native-snap-carousel';
 import Swiper from 'react-native-swiper';
@@ -29,6 +33,7 @@ class HomeScreen extends React.Component {
                         </View>
                         <Button
                             title="Take a Photo >"
+                            color='black'
                             onPress={this._pickImage}
                         />    
                     </View>
@@ -40,6 +45,7 @@ class HomeScreen extends React.Component {
                         </View>
                         <Button
                             style={ styles.button }
+                            color='black'
                             title="Reminders >"
                             onPress={() => {
                                 navigate('Reminders')
@@ -71,6 +77,7 @@ class HomeScreen extends React.Component {
                         />           
                     <Button
                         title="View Progress"
+                        color='black'
                         onPress={() => {
                             navigate('PhotoTimelapse', { productId: 'Sabrina and Pamela are cool, yo' })
                         }}></Button>
@@ -79,15 +86,21 @@ class HomeScreen extends React.Component {
                 </View>
                 <View style={ styles.productsContainer }>    
                     <Carousel
-                        ref={(carousel) => { this._carousel = carousel; }}
                         sliderWidth={50}
                         itemWidth={30}
+                        inactiveSlideScale={0.9}
+                        inactiveSlideOpacity={1}
+                        enableMomentum={false}
+                        showsHorizontalScrollIndicator={false}
+                        snapOnAndroid={true}
+                        removeClippedSubviews={false}
                         >
-                    <Svg height="150" width="150">
+                    <View style={ styles.slideInnerContainer }>
+                    <Svg height="120" width="120">
                         <Circle
-                            cx="65"
-                            cy="65"
-                            r="65"
+                            cx="60"
+                            cy="60"
+                            r="60"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -97,11 +110,13 @@ class HomeScreen extends React.Component {
                             source={require('../assets/images/Group 2.png')}
                         />
                     </Svg>
-                    <Svg height="150" width="150">
+                    </View>
+                    <View style={ styles.slideInnerContainer }>
+                    <Svg height="120" width="120">
                         <Circle
-                            cx="65"
-                            cy="65"
-                            r="65"
+                            cx="60"
+                            cy="60"
+                            r="60"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -111,11 +126,13 @@ class HomeScreen extends React.Component {
                             source={require('../assets/images/Probiotic.png')}
                         />
                     </Svg>
-                    <Svg height="150" width="150">
+                    </View>
+                    <View style={ styles.slideInnerContainer }>
+                    <Svg height="120" width="120">
                         <Circle
-                            cx="65"
-                            cy="65"
-                            r="65"
+                            cx="60"
+                            cy="60"
+                            r="60"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -125,11 +142,13 @@ class HomeScreen extends React.Component {
                             source={require('../assets/images/Spot Treatment.png')}
                         />
                     </Svg>
-                    <Svg height="150" width="150">
+                    </View>
+                    <View style={ styles.slideInnerContainer }>
+                    <Svg height="120" width="120">
                         <Circle
-                            cx="65"
-                            cy="65"
-                            r="65"
+                            cx="60"
+                            cy="60"
+                            r="60"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -139,11 +158,13 @@ class HomeScreen extends React.Component {
                             source={require('../assets/images/Zinc.png')}
                         />
                     </Svg>
-                    <Svg height="150" width="150">
+                    </View>
+                    <View style={ styles.slideInnerContainer }>
+                    <Svg height="120" width="120">
                         <Circle
-                            cx="65"
-                            cy="65"
-                            r="65"
+                            cx="60"
+                            cy="60"
+                            r="60"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -153,11 +174,13 @@ class HomeScreen extends React.Component {
                             source={require('../assets/images/Jar with Pads.png')}
                         />
                     </Svg>
-                    <Svg height="150" width="150">
+                    </View>
+                    <View style={ styles.slideInnerContainer }>
+                    <Svg height="120" width="120">
                         <Circle
-                            cx="65"
-                            cy="65"
-                            r="65"
+                            cx="60"
+                            cy="60"
+                            r="60"
                             fill="#DEE5C8"
                             stroke="#EAEAEC"
                             strokeWidth="2"
@@ -167,10 +190,12 @@ class HomeScreen extends React.Component {
                             source={require('../assets/images/Packet.png')}
                         />
                     </Svg>
+                    </View>
                     </Carousel>
                     <View style={ styles.viewButton }>
                     <Button
                         style={ styles.viewButton }
+                        color='black'
                         title="View All >"
                         onPress={() => {
                             navigate('Products')
@@ -184,9 +209,40 @@ class HomeScreen extends React.Component {
     }
 
      _pickImage = async() =>{
-        let result = await ImagePicker.launchCameraAsync({
+        ImagePicker.launchCameraAsync({
            allowsEditing: true,
-           aspect: [4,3], 
+           aspect: [4, 3], 
+        })
+        .then(result => {
+            console.log('Picture Taken');
+            
+            const file = {
+                uri: result.uri,
+                name: `${uuid()}.jpg`,
+                type: "image/jpeg"
+            };
+            const options = {
+                keyPrefix: "uploads/",
+                bucket: secrets.awsBucketName,
+                region: "us-west-1",
+                accessKey: secrets.awsAccessKey,
+                secretKey: secrets.awsSecretKey,
+                successActionStatus: 201
+            };
+
+            RNS3
+                .put(file, options)
+                .then(response => {
+                    if (response.status !== 201){
+                        console.log(response);
+                    }
+                    const newPost = {
+                        title: 'Example post',
+                        imageUrl: `https://d1qlaz9cjtvywd.cloudfront.net/${response.key}`
+                    };
+                    this.props.addPost(newPost);
+                    this.props.navigation.navigate('PhotoAlbum', { url: result.url })
+                });
         });
 
         }
@@ -245,6 +301,12 @@ var styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor:'transparent'
     },
+    slideInnerContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        paddingHorizontal: 5,
+        alignItems: 'center'
+    },
     icon: {
         flex: 1,
         flexDirection: 'column',
@@ -256,6 +318,9 @@ var styles = StyleSheet.create({
         height: null, 
         width: null,
         resizeMode: 'contain',
+    },
+    text: {
+      color: 'black'  
     },
     button: {
         backgroundColor: 'transparent'
