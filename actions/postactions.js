@@ -27,5 +27,3 @@ export function deletePost(post) {
         payload: postApi.deletePost(post)
     };
 }
-
-export function addNotes

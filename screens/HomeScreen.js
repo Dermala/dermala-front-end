@@ -1,13 +1,16 @@
 import React from 'react';
-import { StyleSheet, ScrollView, Text, Button, View, Image } from 'react-native';
+import { StyleSheet, ScrollView, Button, Text, View, Image } from 'react-native';
 import { ImagePicker } from 'expo';
 import Svg, { Circle } from 'react-native-svg';
 import Carousel from 'react-native-snap-carousel';
 import Swiper from 'react-native-swiper';
 
 class HomeScreen extends React.Component {
-    static navigationOptions = {
-        title: 'Home'
+    static navigationOptions = {       
+        title: 'Home',
+        headerRight: <Button 
+                        title="Sign Out"
+                        color='black' />,
     };
 
     render() {
@@ -122,6 +125,48 @@ class HomeScreen extends React.Component {
                             source={require('../assets/images/Spot Treatment.png')}
                         />
                     </Svg>
+                    <Svg height="150" width="150">
+                        <Circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
+                            style={ styles.image }
+                            source={require('../assets/images/Zinc.png')}
+                        />
+                    </Svg>
+                    <Svg height="150" width="150">
+                        <Circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
+                            style={ styles.image }
+                            source={require('../assets/images/Jar with Pads.png')}
+                        />
+                    </Svg>
+                    <Svg height="150" width="150">
+                        <Circle
+                            cx="65"
+                            cy="65"
+                            r="65"
+                            fill="#DEE5C8"
+                            stroke="#EAEAEC"
+                            strokeWidth="2"
+                        />
+                        <Image
+                            style={ styles.image }
+                            source={require('../assets/images/Packet.png')}
+                        />
+                    </Svg>
                     </Carousel>
                     <View style={ styles.viewButton }>
                     <Button
@@ -183,7 +228,6 @@ var styles = StyleSheet.create({
         borderColor: 'white',
         borderWidth: 1,
         backgroundColor:'transparent'
-
     },
     photoContainer: {
         flex: 1,

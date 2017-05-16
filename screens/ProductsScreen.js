@@ -3,6 +3,12 @@ import { StyleSheet, ScrollView, Text, View, Image, Button } from 'react-native'
 import Svg, { Circle } from 'react-native-svg';
 
 class ProductsScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Home',
+        headerRight: <Button 
+                        title="Buy"
+                        color='black' />,
+    };
     state = {  }
     render() {
         const { navigate } = this.props.navigation;

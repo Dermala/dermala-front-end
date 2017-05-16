@@ -2,12 +2,6 @@
   "name": "dermala-front-end",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "jest-expo": "^0.4.0",
-    "react-native-scripts": "0.0.29",
-    "react-test-renderer": "16.0.0-alpha.6"
-  },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
@@ -15,12 +9,23 @@
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
+  "devDependencies": {
+    "jest-expo": "^0.4.0",
+    "react-native-scripts": "0.0.29",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "jest": {
     "preset": "jest-expo"
   },
+  "engine": {
+    "node": ">6.10.3"
+  },
   "dependencies": {
     "axios": "^0.16.1",
+    "bower": "^1.8.0",
     "expo": "^16.0.0",
+    "express": "^4.15.2",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.4",
     "react-native-check-box": "^1.0.4",
@@ -30,9 +35,9 @@
     "react-native-modal-dropdown": "^0.4.2",
     "react-native-modal-picker": "0.0.16",
     "react-native-multiple-choice": "0.0.8",
+    "react-native-rating-star": "^0.2.1",
     "react-native-simple-radio-button": "^2.5.0-alpha.1",
     "react-native-snap-carousel": "^2.1.2",
-    "react-native-star-rating": "^1.0.7",
     "react-native-svg": "^5.1.8",
     "react-native-swiper": "^1.5.4",
     "react-native-vector-icons": "^4.1.1",
