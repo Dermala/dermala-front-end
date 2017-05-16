@@ -45,12 +45,16 @@ class LoginScreen extends React.Component {
             </View>
              <TouchableOpacity style={styles.buttonContainer}>
                  <Button
-                 title='Next >'
-                 onPress={() => this.props.login(this.props.email, this.props.password)}/>
+                 title="Next >"
+                 color="black"
+                 onPress={() =>{
+                     navigate('Home', {productId:''})
+                 }}/>
             </TouchableOpacity>
              <Button
                 style={ styles.forgotButton }
-                title='Forgot Password?'
+                title="Forgot Password?"
+                color="black"
                 onPress={() => {
                   navigate('Login',)
                   }}/> 
