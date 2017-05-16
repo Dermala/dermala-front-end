@@ -29,6 +29,7 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
              <TouchableOpacity style={styles.buttonContainer}>
                  <Button
                  title="Next >"
+                 color="black"
                  onPress={() =>{
                      navigate('Home', {productId:''})
                  }}/>
@@ -36,6 +37,7 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
              <Button
                 style={ styles.forgotButton }
                 title="Forgot Password?"
+                color="black"
                 onPress={() => {
                   navigate('Login',)
                   }}/> 

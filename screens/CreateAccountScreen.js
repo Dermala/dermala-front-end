@@ -34,6 +34,7 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
                <TouchableOpacity style={styles.buttonContainer}>
                   <Button
                   title="Next >"
+                  color="black"
                   onPress={() =>{
                      navigate('Profile', {productId: ''})
                  }}></Button>
