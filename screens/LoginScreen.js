@@ -20,10 +20,10 @@ class LoginScreen extends React.Component {
          <View style={ styles.mainContainer}>
             <View style={styles.container}>
               <Text style={styles.title}>
-                  Welcome back, Betty.
+                  Welcome back!
               </Text>
               <Text style={styles.welcome}>
-                  What is your password?
+                  Please enter your user information.
               </Text>
              <View>
                 <TextInput 
@@ -51,13 +51,13 @@ class LoginScreen extends React.Component {
                      navigate('Home', {productId:''})
                  }}/>
             </TouchableOpacity>
-             <Button
+             {/*<Button
                 style={ styles.forgotButton }
                 title="Forgot Password?"
                 color="black"
                 onPress={() => {
                   navigate('Login',)
-                  }}/> 
+                  }}/> */}
          </View>
         </View>
             

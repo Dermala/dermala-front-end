@@ -23,9 +23,7 @@ class PhotoAlbumScreen extends React.Component {
                     </View>
                 </View>
            
-          
-           
-        );
+          );
     }
 
 
@@ -49,19 +47,18 @@ var styles =StyleSheet.create({
     mainContainer: {
         flex: 1,
         backgroundColor: '#f8f2f2',
-        flexDirection: 'column',
-        alignItems: 'stretch'
+        alignItems: 'center'
     },
     sectionContainer: {
         flex: 1,
-        flexDirection: 'column',
-        alignItems: 'stretch',
+        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'center',
 
     },
     photoContainer: {
         flex: 1,
-        alignItems: 'stretch',
+        alignItems: 'center',
 
     },
     icon: {

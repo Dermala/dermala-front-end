@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, Button, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, TextInput, Button, View, Image, TouchableOpacity} from 'react-native';
 import CheckBox from 'react-native-checkbox';
 import Rating from 'react-native-easy-rating';
 
@@ -11,8 +11,9 @@ class PhotoNotesScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <View style={ styles.mainContainer }>           
-                <View style={ styles.ratingContainer }>
+            <View style={ styles.mainContainer }>          
+                <View style={ styles.sectionContainer }>
+                    <View style={ styles.ratingContainer}>
                     <Text style={ styles.text }>Rate your Skin</Text>
                     <Rating
                         rating={1}
@@ -22,44 +23,65 @@ class PhotoNotesScreen extends React.Component {
                         iconSelected={require('../assets/icons/blackStar.png')}
                         iconUnselected={require('../assets/icons/emptyStar.png')}
                         onRate={(rating) => this.setState({rating: rating})}/>
-                </View>
-                <View style={ styles.sectionContainer }>
+                    </View>
+                    <View style={ styles.photoContainer }>
+                    <Image
+                        source={{url: this.props.navigation.state.params.url}}
+                        style={ styles.image }
+                    />
+                    </View>
+                </View>                
+                <View style={ styles.questionContainer }>
                     <Text style={ styles.text }>Check all that apply</Text>
+                    <View>
                     <CheckBox
                         label='I did not wash my face today.'
                         checked={false}
                         onChange={(checked) => console.log('I am checked', checked)}
                         />
+                    </View>
+                    <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I did not use acne products today.'
                         checked={false}
                         onChange={(checked) => console.log('I am checked', checked)}
                         />
+                    </View>
+                    <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I had more sun exposure than usual.'
                         checked={false}
                         onChange={(checked) => console.log('I am checked', checked)}
                         />
+                    </View>
+                    <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I worked out/sweat today.'
                         checked={false}
                         onChange={(checked) => console.log('I am checked', checked)}
                         />
+                    </View>
+                    <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I ate greasy or sugary foods today.'
                         checked={true}
                         onChange={(checked) => console.log('I am checked', checked)}
                         />
+                    </View>
+                    <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I ate dairy today.'
                         checked={true}
                         onChange={(checked) => console.log('I am checked', checked)}
                         />
+                    </View>
+                    <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I have been stressed today.'
                         checked={true}
                         onChange={(checked) => console.log('I am checked', checked)}
                         />
+                    </View>
                 </View >
                 <View style={ styles.notesContainer }>
                     <Text 
@@ -90,13 +112,28 @@ var styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'stretch',
     },
-    ratingContainer: {
+    sectionContainer: {
         flex: 1,
+        flexDirection: 'row',
         padding: 10
     },
-    sectionContainer: {
+    ratingContainer: {
+        flex: 1,
+        flexDirection: 'column',
+    },
+    photoContainer: {
+        flex: 1, 
+        alignItems: 'flex-end', 
+        paddingRight: 5,   
+    },
+    questionContainer: {
         flex: 4,
+        flexDirection: 'column',
         padding: 10
+    },
+    checkboxContainer: {
+        flex: 1,
+        flexDirection: 'column'
     },
     notesContainer: {
         flex: 2,
@@ -126,7 +163,12 @@ var styles = StyleSheet.create({
         backgroundColor: '#f8f8ff',
         marginBottom: 20,
         marginTop: 20,
-        padding: 5
+        padding: 5,
+        borderRadius: 10,
+    },
+    image: {
+        height: 80,
+        width: 80,
     }
 });
 

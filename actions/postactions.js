@@ -1,29 +1,29 @@
-import postApi from '../api/post';
+import postApi from '../api/photo';
 
-export function getAllPosts() {
+export function getAllPhotos() {
     return {
-        type: "FETCH_POSTS",
-        payload: postApi.getAllPosts()
+        type: "FETCH_PHOTO",
+        payload: postApi.getAllPhotos()
     };
 }
 
-export function addPost() {
+export function addPhoto() {
     return {
-        type: "ADD_POST",
-        payload: postApi.addPost(post)
+        type: "ADD_PHOTO",
+        payload: postApi.addPhoto(photo)
     };
 }
 
-export function updatePost(post) {
+export function updatePhoto(photo) {
     return {
-        type: "UPDATE_POST",
-        payload: postApi.updatePost(post)
+        type: "UPDATE_PHOTO",
+        payload: postApi.updatePhoto(photo)
     };
 }
 
-export function deletePost(post) {
+export function deletePhoto(photo) {
     return {
-        type: "DELETE_POST",
-        payload: postApi.deletePost(post)
+        type: "DELETE_PHOTO",
+        payload: postApi.deletePost(photo)
     };
 }
