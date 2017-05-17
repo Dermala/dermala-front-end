@@ -6,8 +6,11 @@ import background from '../assets/logo/Background Fade.png';
 import {login, changeField } from '../actions/authActions';
 
 class LoginScreen extends React.Component {
-     updateInput = (ev) => {
-
+     
+     componentDidUpdate() {
+         if (this.props.token){
+             this.props.navigation.navigate('Home')
+         }
      }
      
      static navigationOptions = {
@@ -48,7 +51,7 @@ class LoginScreen extends React.Component {
                  title="Next >"
                  color="black"
                  onPress={() =>{
-                     navigate('Home', {productId:''})
+                     this.props.login(this.props.email, this.props.password)
                  }}/>
             </TouchableOpacity>
              {/*<Button

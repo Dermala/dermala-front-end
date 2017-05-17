@@ -14,7 +14,7 @@ import PhotoTimelapseScreen from '../screens/PhotoTimelapseScreen.js';
 import ProductsScreen from '../screens/ProductsScreen.js';
 
 const AppNavigator = StackNavigator({
-    PhotoAlbum: { screen: PhotoAlbumScreen },
+    
     Splash: { screen: SplashScreen },
     Landing: { screen: LandingScreen },  
     Login: { screen: LoginScreen },
@@ -22,7 +22,7 @@ const AppNavigator = StackNavigator({
     Profile: { screen: ProfileScreen },
     Home: { screen: HomeScreen }, 
     PhotoNotes: { screen: PhotoNotesScreen },
-    
+    PhotoAlbum: { screen: PhotoAlbumScreen },
     PhotoTimelapse: { screen: PhotoTimelapseScreen },
     Reminders: { screen: ReminderScreen }, 
     Products: { screen: ProductsScreen }

@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, ScrollView, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, Image, Button, TouchableHighlight, Linking } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 
 class ProductsScreen extends React.Component {
     static navigationOptions = {
         title: 'Home',
         headerRight: <Button 
+                        onPress={() => Linking.openURL('http://phpstack-54297-258275.cloudwaysapps.com/shop/')}
                         title="Buy"
                         color='black' />,
     };
@@ -16,27 +17,37 @@ class ProductsScreen extends React.Component {
             
             <View style={ styles.mainContainer }>            
                 <View style={ styles.sectionContainer }>
-                    <View style={ styles.photoContainer }>
+                    <TouchableHighlight
+                        style={ styles.link }
+                        onPress={() => Linking.openURL('http://phpstack-54297-258275.cloudwaysapps.com/browse/acne-clearing-system/')}
+                        underlayColor = {'transparent'}
+                        >   
+                    <View style={ styles.photoContainer }>                            
                         <Svg height="100" width="100">
-                        <Circle
-                            cx="50"
-                            cy="50"
-                            r="50"
-                            fill="#DEE5C8"
-                            stroke="#EAEAEC"
-                            strokeWidth="2"
-                            />
-                            <Image
-                                style = { styles.image }
-                                source={require('../assets/images/Group 2.png')}
-                            />
-                        </Svg>                       
+                            <Circle
+                                cx="50"
+                                cy="50"
+                                r="50"
+                                fill="#DEE5C8"
+                                stroke="#EAEAEC"
+                                strokeWidth="2"
+                                />
+                                <Image
+                                    style = { styles.image }
+                                    source={require('../assets/images/Group 2.png')}
+                                />                             
+                        </Svg>                                           
                         <View style={ styles.text }>
                             <Text style={{ textAlign: 'center' }}>Complete Acne Clearing System</Text>
                             <Text>$49.99</Text>
-                        </View>
-                       
+                        </View>                    
                     </View>
+                    </TouchableHighlight> 
+                    <TouchableHighlight
+                        style={ styles.link }
+                        onPress={() => Linking.openURL('http://phpstack-54297-258275.cloudwaysapps.com/shop/acne-clearing-system/acne-treatment-pads/')}
+                        underlayColor = {'transparent'}
+                        > 
                     <View style={ styles.photoContainer }>
                         <Svg height="100" width="100">
                         <Circle
@@ -48,8 +59,8 @@ class ProductsScreen extends React.Component {
                             strokeWidth="2"
                         />
                         <Image
-                                style = { styles.image }
-                                source={require('../assets/images/Jar with Pads.png')}
+                            style = { styles.image }
+                            source={require('../assets/images/Jar with Pads.png')}
                             />
                         </Svg>  
                         <View style={ styles.text }>
@@ -57,8 +68,14 @@ class ProductsScreen extends React.Component {
                             <Text>$29.99</Text>
                         </View>                    
                     </View>
-                </View>
+                    </TouchableHighlight>
+                </View>          
                 <View style={ styles.sectionContainer }>
+                    <TouchableHighlight
+                    style={ styles.link }
+                    onPress={() => Linking.openURL('http://phpstack-54297-258275.cloudwaysapps.com/shop/acne-clearing-system/probiotics/')}
+                    underlayColor = {'transparent'}
+                    > 
                     <View style={ styles.photoContainer }>
                         <Svg height="100" width="100">
                         <Circle
@@ -79,6 +96,12 @@ class ProductsScreen extends React.Component {
                             <Text>$19.99</Text>
                         </View>
                     </View>
+                    </TouchableHighlight> 
+                    <TouchableHighlight
+                        style={ styles.link }
+                        onPress={() => Linking.openURL('http://phpstack-54297-258275.cloudwaysapps.com/shop/general/acne-spot-treatment/')}
+                        underlayColor = {'transparent'}
+                        > 
                     <View style={ styles.photoContainer }>
                         <Svg height="100" width="100">
                         <Circle
@@ -99,8 +122,14 @@ class ProductsScreen extends React.Component {
                             <Text>$14.99</Text>
                         </View>                     
                     </View>
-                </View>
+                    </TouchableHighlight> 
+                </View>                
                 <View style={ styles.sectionContainer }>
+                    <TouchableHighlight
+                        style={ styles.link }
+                        onPress={() => Linking.openURL('http://phpstack-54297-258275.cloudwaysapps.com/shop/acne-clearing-system/acne-dots/')}
+                        underlayColor = {'transparent'}
+                        > 
                     <View style={ styles.photoContainer }>
                         <Svg height="100" width="100" style={styles.circles}>
                         <Circle
@@ -119,8 +148,14 @@ class ProductsScreen extends React.Component {
                         <View style={ styles.text }>
                             <Text style={{ textAlign: 'center' }}>Acne Pimple Patches</Text>
                             <Text>$9.99</Text>
-                        </View>
+                        </View>                 
                     </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                        style={ styles.link }
+                        onPress={() => Linking.openURL('http://phpstack-54297-258275.cloudwaysapps.com/shop/general/new-acne-product/')}
+                        underlayColor = {'transparent'}
+                        >
                     <View style={ styles.photoContainer }>
                         <Svg height="100" width="100">
                         <Circle
@@ -141,6 +176,7 @@ class ProductsScreen extends React.Component {
                             <Text>$9.99</Text>
                         </View>                     
                     </View>
+                    </TouchableHighlight>
                 </View>
             </View>           
         );
@@ -193,5 +229,10 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: 130
+    },
+    link: {
+        flex: 1,
+        alignItems: 'flex-start',
+        paddingLeft: 10
     }
 });

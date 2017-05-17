@@ -1,7 +1,7 @@
 const initState = {
     loggingIn: false,
-    email: '',
-    password: ''
+    email: 'ses0607@gmail.com',
+    password: 'password123'
 };
 
 const reducer = (state = initState, action) => {
