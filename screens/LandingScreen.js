@@ -3,7 +3,8 @@ import { StyleSheet, View, Text, Button, Image, TextInput } from 'react-native';
 
 class LandingScreen extends React.Component {
     static navigationOptions = {
-        title: 'Welcome'
+        title: 'Back',
+        header: null,
     }
     render() {
         const { navigate } = this.props.navigation;
@@ -53,7 +54,7 @@ var styles = StyleSheet.create({
     iconContainer: {
         flex: 2,
         alignItems: 'center',
-        paddingTop: 50,  
+        paddingTop: 100,  
     },
     logoContainer: {
         flex: 1,

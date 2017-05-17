@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 
 export default {
     async getAllPhotos() {
         return AsyncStorage
             .getItem('authToken')
             .then(token => axios
-                .get('https://dermala-api.herokuapp.com/api/photo', {
+                .get('https://dermala-api.herokuapp.com/api/photos', {
                     headers: {
                         'Authorization': `JWT ${token}`
                     }
@@ -21,13 +22,13 @@ export default {
         return AsyncStorage
             .getItem('authToken')
             .then(token => {
-                console.log('Hey look...', token);
+                console.log('TOKEN WHEN ADDING PHOTO: ', token);
                 return axios
-                .post('https://dermala-api.herokuapp.com/api/photo', {
-                    headers: {
-                        'Authorization': `JWT ${token}`
-                    }
-                }, photo)
+                    .post('https://dermala-api.herokuapp.com/api/photos', {
+                        headers: {
+                            'Authorization': 'JWT ' + token
+                        }
+                    }, photo)
             })
             .then(response => {
                 console.log('Did it work?', response.data);
@@ -37,7 +38,7 @@ export default {
 
     updatePhoto(photo) {
         return axios
-            .put(`https://dermala-api.herokuapp.com/api/photo/${post._id}`, {
+            .put(`https://dermala-api.herokuapp.com/api/photos/${post._id}`, {
                 headers: {
                     'Authorization': `JWT ${AsyncStorage.getItem('authToken')}`
                 }
@@ -46,7 +47,7 @@ export default {
 
     deletePhoto(photo) {
         return axios
-            .delete(`https://dermala-api.herokuapp.com/api/photo/${post._id}`, {
+            .delete(`https://dermala-api.herokuapp.com/api/photos/${post._id}`, {
                 headers: {
                     'Authorization': `JWT ${AsyncStorage.getItem('authToken')}`
                 }

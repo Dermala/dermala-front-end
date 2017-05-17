@@ -3,12 +3,50 @@ import { StyleSheet, Text, TextInput, Button, View, Image, TouchableOpacity, Scr
 import CheckBox from 'react-native-checkbox';
 import Rating from 'react-native-easy-rating';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
-
+import { addPhoto } from '../actions/postActions';
+import { NavigationActions } from 'react-navigation';
+import { connect } from 'react-redux';
 
 class PhotoNotesScreen extends React.Component {
     static navigationOptions = {
         title: 'Notes'
     };
+
+    state = {
+        rating: 0,
+        question1: false,
+        question2: false,
+        question3: false,
+        question4: false,
+        question5: false,
+        question6: false,
+        notes: ""
+    }
+
+    submitPhoto = () => {
+        const newPhoto = {
+            imageUrl: this.props.navigation.state.params.url,
+            postDate: new Date(),
+            rating: this.state.rating,
+            question1: this.state.question1,
+            question2: this.state.question2,
+            question3: this.state.question3, 
+            question4: this.state.question4,
+            question5: this.state.question5,
+            question6: this.state.question6,
+            notes: this.state.notes
+        };
+
+        this.props.submitPhoto(newPhoto);
+        
+        const resetAction = NavigationActions.reset({
+            index: 0,
+            actions: [
+                NavigationActions.navigate({ routeName: 'PhotoAlbum'})
+            ]
+        })
+        this.props.navigation.dispatch(resetAction)
+    }
 
     render() {
         const { navigate } = this.props.navigation;
@@ -28,10 +66,10 @@ class PhotoNotesScreen extends React.Component {
                         onRate={(rating) => this.setState({rating: rating})}/>
                     </View>
                     <View style={ styles.photoContainer }>
-                    <Image
+                    {/*<Image
                         source={{url: this.props.navigation.state.params.url}}
                         style={ styles.image }
-                    />
+                    />*/}
                     </View>
                 </View>                
                 <View style={ styles.questionContainer }>
@@ -39,68 +77,75 @@ class PhotoNotesScreen extends React.Component {
                     <View>
                     <CheckBox
                         label='I did not wash my face today.'
-                        checked={false}
-                        onChange={(checked) => console.log('I am checked', checked)}
+                        checked={this.state.question1}
+                        onChange={(checked) => this.setState({question1: checked})}
+                        uncheckedImage={require('../assets/icons/circle.png')}
+                        checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
                     </View>
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I did not use acne products today.'
-                        checked={false}
-                        onChange={(checked) => console.log('I am checked', checked)}
+                        checked={this.state.question2}
+                        onChange={(checked) => this.setState({question2: checked})}
+                        uncheckedImage={require('../assets/icons/circle.png')}
+                        checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
                     </View>
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I had more sun exposure than usual.'
-                        checked={false}
-                        onChange={(checked) => console.log('I am checked', checked)}
+                        checked={this.state.question3}
+                        onChange={(checked) => this.setState({question3: checked})}
+                        uncheckedImage={require('../assets/icons/circle.png')}
+                        checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
                     </View>
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I worked out/sweat today.'
-                        checked={false}
-                        onChange={(checked) => console.log('I am checked', checked)}
+                        checked={this.state.question4}
+                        onChange={(checked) => this.setState({question4: checked})}
+                        uncheckedImage={require('../assets/icons/circle.png')}
+                        checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
                     </View>
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
-                        label='I ate greasy or sugary foods today.'
-                        checked={true}
-                        onChange={(checked) => console.log('I am checked', checked)}
-                        />
-                    </View>
-                    <View style={ styles.checkboxContainer }>
-                    <CheckBox
-                        label='I ate dairy today.'
-                        checked={true}
-                        onChange={(checked) => console.log('I am checked', checked)}
+                        label='I ate sugary foods or dairy today.'
+                        checked={this.state.question5}
+                        onChange={(checked) => this.setState({question5: checked})}
+                        uncheckedImage={require('../assets/icons/circle.png')}
+                        checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
                     </View>
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I have been stressed today.'
-                        checked={true}
-                        onChange={(checked) => console.log('I am checked', checked)}
+                        checked={this.state.question6}
+                        onChange={(checked) => this.setState({question6: checked})}
+                        uncheckedImage={require('../assets/icons/circle.png')}
+                        checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
                     </View>
                 </View >
                 <View style={ styles.notesContainer }>
                     <Text 
                         style={ styles.text }
-                        multiline = {true}
-                        numberOfLines = {3}
                         >Additional Notes:</Text>
                     <TextInput
-                    style={styles.input}/>  
-                </View> 
+                        value={this.state.notes}
+                        multiline={true}
+                        numberOfLines={5}
+                        onChangeText={(notes) => this.setState({notes})}
+                        style={styles.input}/>
+                </View>
                 <TouchableOpacity style={ styles.buttonContainer }>
                     <Button
                     color="black"
                     title="Post"
                     onPress={() => {
-                        navigate('PhotoAlbum')
+                        this.submitPhoto()
                     }}></Button>
                 </TouchableOpacity>   
                 <KeyboardSpacer/>                      
@@ -159,6 +204,7 @@ var styles = StyleSheet.create({
     },
     text: {
         fontSize: 18,
+        paddingBottom: 5,
     },
     button: {
         backgroundColor: 'transparent'
@@ -183,7 +229,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     select: () => dispatch(),
-    changeField: (key, value) => dispatch(changeField(key, value))
+    submitPhoto: (photo) => dispatch(addPhoto(photo))
 });
 
-export default PhotoNotesScreen;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(PhotoNotesScreen);

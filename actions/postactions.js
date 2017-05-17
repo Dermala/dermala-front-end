@@ -7,7 +7,7 @@ export function getAllPhotos() {
     };
 }
 
-export function addPhoto() {
+export function addPhoto(photo) {
     return {
         type: "ADD_PHOTO",
         payload: postApi.addPhoto(photo)

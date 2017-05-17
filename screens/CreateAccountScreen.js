@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
 
  export default class CreateAccountScreen extends Component {
      static navigationOptions = {
-         title: 'Create Account'
+         title: 'Welcome'
      };
    render() {
        const { navigate } = this.props.navigation;
@@ -12,10 +12,10 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
          <View style={styles.mainContainer}>
             <View style={styles.container}>
               <Text style={styles.welcome}>
-                Lets start by signing you in.
+                Let's get started!
               </Text>
-              <Text style={styles.instructions}>
-                What is your email?
+              <Text style={styles.welcome}>
+                  Create your account below.
               </Text>
             <Text>Email</Text>
              <TextInput 
@@ -31,13 +31,15 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
              secureTextEntry
               style={styles.input}
              />
-               <TouchableOpacity style={styles.buttonContainer}>
-                  <Button
+               <TouchableOpacity>
+                  <View style={styles.buttonContainer}>
+                  <Button 
                   title="Next >"
                   color="black"
                   onPress={() =>{
                      navigate('Profile', {productId: ''})
                  }}></Button>
+                 </View>
                 </TouchableOpacity>
               </View>
             </View>
@@ -75,9 +77,11 @@ var styles  = StyleSheet.create({
         backgroundColor: '#f8f8ff',
         marginBottom: 20,
         marginTop: 20,
+        borderRadius: 5
     },
     buttonContainer: {
         backgroundColor: '#dee5c9',
+        borderRadius: 5
     },
     buttonText: {
         textAlign: 'center'

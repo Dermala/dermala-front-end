@@ -2,6 +2,9 @@ import React from 'react';
 import { StyleSheet, View, Text, Image} from 'react-native';
 
 class SplashScreen extends React.Component {
+    static navigationOptions = {
+        header: null,
+    }
     componentWillMount () {
         setTimeout(() => {
             this.props.navigation.navigate('Landing')
@@ -40,7 +43,7 @@ var styles = StyleSheet.create({
     iconContainer: {
         flex: 1,
         alignItems: 'center',
-        paddingTop: 50,  
+        paddingTop: 100,  
     },
     logoContainer: {
         flex: 1,
