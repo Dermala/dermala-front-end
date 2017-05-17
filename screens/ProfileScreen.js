@@ -8,6 +8,7 @@ export default class ProfileScreen extends Component {
         title: 'Profile'
     };
 
+
    render(){
        const { navigate } = this.props.navigation;
        let i = 0;

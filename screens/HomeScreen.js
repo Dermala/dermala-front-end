@@ -24,7 +24,7 @@ class HomeScreen extends React.Component {
             <Image
                 style={ styles.mainContainer }
                 source={require('../assets/logo/Background Fade.png')}
-                resizeMode="cover">
+                resizeMode="stretch">
             <View style={ styles.mainContainer }>           
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
