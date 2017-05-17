@@ -52,8 +52,7 @@ class HomeScreen extends React.Component {
                                 navigate('Reminders')
                             }}></Button>
                     </View>
-                </View>
-                
+                </View>               
                 <View style={ styles.progressContainer }>
                     <Swiper 
                         height={200} 

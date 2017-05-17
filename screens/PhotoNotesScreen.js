@@ -55,7 +55,7 @@ class PhotoNotesScreen extends React.Component {
                     <View style={ styles.ratingContainer}>
                     <Text style={ styles.text }>Rate your Skin</Text>
                     <Rating
-                        rating={1}
+                        rating={0}
                         max={5}
                         iconWidth={25}
                         iconHeight={25}
