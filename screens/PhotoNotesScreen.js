@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, Button, View, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, TextInput, Button, View, Image, TouchableOpacity, ScrollView} from 'react-native';
 import CheckBox from 'react-native-checkbox';
 import Rating from 'react-native-easy-rating';
+import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { addPhoto } from '../actions/postActions';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -50,6 +51,7 @@ class PhotoNotesScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
+            <ScrollView>
             <View style={ styles.mainContainer }>          
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.ratingContainer}>
@@ -137,7 +139,7 @@ class PhotoNotesScreen extends React.Component {
                         numberOfLines={5}
                         onChangeText={(notes) => this.setState({notes})}
                         style={styles.input}/>
-                </View>                
+                </View>
                 <TouchableOpacity style={ styles.buttonContainer }>
                     <Button
                     color="black"
@@ -145,8 +147,10 @@ class PhotoNotesScreen extends React.Component {
                     onPress={() => {
                         this.submitPhoto()
                     }}></Button>
-                </TouchableOpacity>                        
+                </TouchableOpacity>   
+                <KeyboardSpacer/>                      
             </View>
+        </ScrollView>
             
         );
     }
