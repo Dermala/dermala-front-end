@@ -39,7 +39,7 @@ export default class ProfileScreen extends Component {
         return (
             <View style={styles.mainContainer}>
                 <View style={styles.container}>
-                 <Text>Name</Text>
+                 <Text>First Name</Text>
                     <TextInput style={styles.input}/>
             <Text>Skin Type</Text> 
                 <ModalPicker

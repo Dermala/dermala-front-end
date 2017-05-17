@@ -15,6 +15,10 @@ class PhotoAlbumScreen extends React.Component {
              <View style={ styles.mainContainer }>            
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }> 
+                        <Image
+                        source={{url: this.props.navigation.state.params.url}}
+                        style={ styles.image }
+                    />
                         <Image 
                             style={ styles.icon }
                             source={require('../assets/icons/add.png')}/>                     
@@ -56,27 +60,24 @@ var styles =StyleSheet.create({
     mainContainer: {
         flex: 1,
         backgroundColor: '#f8f2f2',
-        flexDirection: 'column',
-        alignItems: 'stretch'
+        alignItems: 'center'
     },
     sectionContainer: {
         flex: 1,
-        flexDirection: 'column',
-        alignItems: 'stretch',
+        flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'center',
 
     },
     photoContainer: {
         flex: 1,
-        alignItems: 'stretch',
+        alignItems: 'center',
 
     },
     icon: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        
-        
+        resizeMode: 'contain',
+        justifyContent: 'center',     
     },
     image: {
         flex: 1,

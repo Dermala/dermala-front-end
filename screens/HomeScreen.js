@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView, Button, Text, View, Image } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Button, Text, View, Image } from 'react-native';
 import { ImagePicker } from 'expo';
+import secrets from '../secrets';
 import { RNS3 } from 'react-native-aws3';
 import uuid from 'uuid/v1';
 import { addPost } from '../actions/postActions';
@@ -46,7 +47,7 @@ class HomeScreen extends React.Component {
                         <Button
                             style={ styles.button }
                             color='black'
-                            title="Reminders >"
+                            title="Tips >"
                             onPress={() => {
                                 navigate('Reminders')
                             }}></Button>
@@ -185,6 +186,7 @@ class HomeScreen extends React.Component {
                             stroke="#EAEAEC"
                             strokeWidth="2"
                         />
+                        <Text>1</Text>
                         <Image
                             style={ styles.image }
                             source={require('../assets/images/Packet.png')}
@@ -224,7 +226,7 @@ class HomeScreen extends React.Component {
             const options = {
                 keyPrefix: "uploads/",
                 bucket: secrets.awsBucketName,
-                region: "us-west-1",
+                region: "us-west-2",
                 accessKey: secrets.awsAccessKey,
                 secretKey: secrets.awsSecretKey,
                 successActionStatus: 201
@@ -236,12 +238,8 @@ class HomeScreen extends React.Component {
                     if (response.status !== 201){
                         console.log(response);
                     }
-                    const newPost = {
-                        title: 'Example post',
-                        imageUrl: `https://d1qlaz9cjtvywd.cloudfront.net/${response.key}`
-                    };
-                    this.props.addPost(newPost);
-                    this.props.navigation.navigate('PhotoAlbum', { url: result.url })
+                    console.log(response);
+                    this.props.navigation.navigate('PhotoNotes', { url: `https://d3olwvuk0x912i.cloudfront.net/${response.body.postResponse.key}` })
                 });
         });
 
@@ -254,7 +252,8 @@ var styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         flexDirection: 'column',
-        alignItems: 'stretch',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
     },
     sectionContainer: {
         flex: 1,
