@@ -26,14 +26,14 @@ class LandingScreen extends React.Component {
                 <View style={ styles.contentContainer }>
                     <Button
                         title="Create Account"
-                        color='green'
+                        color='#80ba34'
                         onPress={() => {
                             navigate('CreateAccount')
                         }}
                     ></Button>
                     <Button
                         title="Login"
-                        color='green'
+                        color='#80ba34'
                         onPress={() => {
                             navigate('Login')
                         }}

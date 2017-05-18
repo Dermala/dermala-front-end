@@ -31,21 +31,19 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
              secureTextEntry
               style={styles.input}
              />
+            <View style={styles.buttonContainer}>
                <TouchableOpacity>
-                  <View style={styles.buttonContainer}>
+                  
                   <Button 
                   title="Next >"
                   color="black"
                   onPress={() =>{
                      navigate('Profile', {productId: ''})
                  }}></Button>
-                 </View>
                 </TouchableOpacity>
-              </View>
             </View>
-
-             
-            
+            </View>
+        </View>            
         );
     }
 }

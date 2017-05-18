@@ -2,7 +2,7 @@ import axios from 'axios';
 import { AsyncStorage } from 'react-native';
 
 export default {
-    async getAllPhotos() {
+    getAllPhotos() {
         return AsyncStorage
             .getItem('authToken')
             .then(token => axios
@@ -18,21 +18,24 @@ export default {
             });
     },
 
-    async addPhoto(photo) {
+    addPhoto(photo) {
         return AsyncStorage
             .getItem('authToken')
             .then(token => {
                 console.log('TOKEN WHEN ADDING PHOTO: ', token);
                 return axios
-                    .post('https://dermala-api.herokuapp.com/api/photos', {
+                    .post('https://dermala-api.herokuapp.com/api/photos', photo, {
                         headers: {
                             'Authorization': 'JWT ' + token
                         }
-                    }, photo)
+                    })
             })
             .then(response => {
                 console.log('Did it work?', response.data);
                 return response.data;
+            })
+            .catch(error => {
+                console.error(error);
             });
     },
 
