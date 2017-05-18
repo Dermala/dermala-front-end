@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import albumReducer from './albumReducer'
 import loginReducer from './loginReducer';
 import navReducer from './navReducer';
 import profileReducer from './profileReducer';
@@ -8,6 +9,7 @@ import notesReducer from './notesReducer';
 
 
 const AppReducer = combineReducers({
+    album: albumReducer,
     login: loginReducer,
     nav: navReducer,
     profile: profileReducer,

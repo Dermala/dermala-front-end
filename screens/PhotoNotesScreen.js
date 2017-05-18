@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 class PhotoNotesScreen extends React.Component {
     static navigationOptions = {
-        title: 'Notes'
+        header: null
     };
 
     state = {
@@ -66,10 +66,10 @@ class PhotoNotesScreen extends React.Component {
                         onRate={(rating) => this.setState({rating: rating})}/>
                     </View>
                     <View style={ styles.photoContainer }>
-                    {/*<Image
+                    <Image
                         source={{url: this.props.navigation.state.params.url}}
                         style={ styles.image }
-                    />*/}
+                    />
                     </View>
                 </View>                
                 <View style={ styles.questionContainer }>
@@ -77,8 +77,8 @@ class PhotoNotesScreen extends React.Component {
                     <View>
                     <CheckBox
                         label='I did not wash my face today.'
-                        checked={this.state.question1}
-                        onChange={(checked) => this.setState({question1: checked})}
+                        style={ styles.label }
+                        onChange={(checked) => this.setState({question1: !checked})}
                         uncheckedImage={require('../assets/icons/circle.png')}
                         checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
@@ -86,8 +86,7 @@ class PhotoNotesScreen extends React.Component {
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I did not use acne products today.'
-                        checked={this.state.question2}
-                        onChange={(checked) => this.setState({question2: checked})}
+                        onChange={(checked) => this.setState({question2: !checked})}
                         uncheckedImage={require('../assets/icons/circle.png')}
                         checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
@@ -95,8 +94,7 @@ class PhotoNotesScreen extends React.Component {
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I had more sun exposure than usual.'
-                        checked={this.state.question3}
-                        onChange={(checked) => this.setState({question3: checked})}
+                        onChange={(checked) => this.setState({question3: !checked})}
                         uncheckedImage={require('../assets/icons/circle.png')}
                         checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
@@ -104,8 +102,7 @@ class PhotoNotesScreen extends React.Component {
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I worked out/sweat today.'
-                        checked={this.state.question4}
-                        onChange={(checked) => this.setState({question4: checked})}
+                        onChange={(checked) => this.setState({question4: !checked})}
                         uncheckedImage={require('../assets/icons/circle.png')}
                         checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
@@ -113,8 +110,7 @@ class PhotoNotesScreen extends React.Component {
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I ate sugary foods or dairy today.'
-                        checked={this.state.question5}
-                        onChange={(checked) => this.setState({question5: checked})}
+                        onChange={(checked) => this.setState({question5: !checked})}
                         uncheckedImage={require('../assets/icons/circle.png')}
                         checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
@@ -122,8 +118,7 @@ class PhotoNotesScreen extends React.Component {
                     <View style={ styles.checkboxContainer }>
                     <CheckBox
                         label='I have been stressed today.'
-                        checked={this.state.question6}
-                        onChange={(checked) => this.setState({question6: checked})}
+                        onChange={(checked) => this.setState({question6: !checked})}
                         uncheckedImage={require('../assets/icons/circle.png')}
                         checkedImage={require('../assets/icons/checkedGreen.png')}
                         />
@@ -161,6 +156,8 @@ var styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         alignItems: 'stretch',
+        backgroundColor: '#f8f2f2',
+        justifyContent: 'center'
     },
     sectionContainer: {
         flex: 1,
@@ -193,7 +190,6 @@ var styles = StyleSheet.create({
         flex: .8,
         justifyContent: 'center',
         backgroundColor: '#dee5c9',
-        bottom: 1,
         padding: 10
     },
     icon: {
@@ -220,6 +216,10 @@ var styles = StyleSheet.create({
     image: {
         height: 80,
         width: 80,
+    },
+    label: {
+        fontSize: 16,
+        color: 'black'
     }
 });
 

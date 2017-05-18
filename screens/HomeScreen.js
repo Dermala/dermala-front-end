@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Dimensions, ScrollView, Button, Text, View, Image } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Button, Text, View, Image, TouchableHighlight } from 'react-native';
 import { ImagePicker } from 'expo';
 import secrets from '../secrets';
 import { RNS3 } from 'react-native-aws3';
@@ -29,9 +29,11 @@ class HomeScreen extends React.Component {
             <View style={ styles.mainContainer }>           
                 <View style={ styles.sectionContainer }>
                     <View style={ styles.photoContainer }>
-                        <View style={ styles.icon }>
+                        <TouchableHighlight 
+                            style={ styles.icon }
+                            onPress={this._pickImage}>
                         <Image source={require('../assets/icons/camera-1.png')} />
-                        </View>
+                        </TouchableHighlight>
                         <Button
                             title="Take a Photo >"
                             color='black'
