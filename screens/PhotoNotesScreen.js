@@ -40,8 +40,9 @@ class PhotoNotesScreen extends React.Component {
         this.props.submitPhoto(newPhoto);
         
         const resetAction = NavigationActions.reset({
-            index: 0,
+            index: 1,
             actions: [
+                NavigationActions.navigate({ routeName: 'Home' }),
                 NavigationActions.navigate({ routeName: 'PhotoAlbum'})
             ]
         })
@@ -51,101 +52,106 @@ class PhotoNotesScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <ScrollView>
-            <View style={ styles.mainContainer }>          
-                <View style={ styles.sectionContainer }>
-                    <View style={ styles.ratingContainer}>
-                    <Text style={ styles.text }>Rate your Skin</Text>
-                    <Rating
-                        rating={0}
-                        max={5}
-                        iconWidth={25}
-                        iconHeight={25}
-                        iconSelected={require('../assets/icons/blackStar.png')}
-                        iconUnselected={require('../assets/icons/emptyStar.png')}
-                        onRate={(rating) => this.setState({rating: rating})}/>
-                    </View>
-                    <View style={ styles.photoContainer }>
-                    <Image
-                        source={{url: this.props.navigation.state.params.url}}
-                        style={ styles.image }
-                    />
-                    </View>
-                </View>                
-                <View style={ styles.questionContainer }>
-                    <Text style={ styles.text }>Check all that apply</Text>
-                    <View>
-                    <CheckBox
-                        label='I did not wash my face today.'
-                        style={ styles.label }
-                        onChange={(checked) => this.setState({question1: !checked})}
-                        uncheckedImage={require('../assets/icons/circle.png')}
-                        checkedImage={require('../assets/icons/checkedGreen.png')}
+            
+            <View style={ styles.mainContainer }>
+                <ScrollView>          
+                <View style={ styles.subContainer }>
+                    <View style={ styles.sectionContainer }>
+                        <View style={ styles.ratingContainer}>
+                        <Text style={ styles.text }>Rate your Skin</Text>
+                        <Rating
+                            rating={0}
+                            max={5}
+                            iconWidth={30}
+                            iconHeight={30}
+                            iconSelected={require('../assets/icons/blackStar.png')}
+                            iconUnselected={require('../assets/icons/emptyStar.png')}
+                            onRate={(rating) => this.setState({rating: rating})}/>
+                        </View>
+                        <View style={ styles.ratingContainer}>
+                        <Image
+                            source={{url: this.props.navigation.state.params.url}}
+                            style={ styles.image }
                         />
-                    </View>
-                    <View style={ styles.checkboxContainer }>
-                    <CheckBox
-                        label='I did not use acne products today.'
-                        onChange={(checked) => this.setState({question2: !checked})}
-                        uncheckedImage={require('../assets/icons/circle.png')}
-                        checkedImage={require('../assets/icons/checkedGreen.png')}
-                        />
-                    </View>
-                    <View style={ styles.checkboxContainer }>
-                    <CheckBox
-                        label='I had more sun exposure than usual.'
-                        onChange={(checked) => this.setState({question3: !checked})}
-                        uncheckedImage={require('../assets/icons/circle.png')}
-                        checkedImage={require('../assets/icons/checkedGreen.png')}
-                        />
-                    </View>
-                    <View style={ styles.checkboxContainer }>
-                    <CheckBox
-                        label='I worked out/sweat today.'
-                        onChange={(checked) => this.setState({question4: !checked})}
-                        uncheckedImage={require('../assets/icons/circle.png')}
-                        checkedImage={require('../assets/icons/checkedGreen.png')}
-                        />
-                    </View>
-                    <View style={ styles.checkboxContainer }>
-                    <CheckBox
-                        label='I ate sugary foods or dairy today.'
-                        onChange={(checked) => this.setState({question5: !checked})}
-                        uncheckedImage={require('../assets/icons/circle.png')}
-                        checkedImage={require('../assets/icons/checkedGreen.png')}
-                        />
-                    </View>
-                    <View style={ styles.checkboxContainer }>
-                    <CheckBox
-                        label='I have been stressed today.'
-                        onChange={(checked) => this.setState({question6: !checked})}
-                        uncheckedImage={require('../assets/icons/circle.png')}
-                        checkedImage={require('../assets/icons/checkedGreen.png')}
-                        />
-                    </View>
-                </View >
-                <View style={ styles.notesContainer }>
-                    <Text 
-                        style={ styles.text }
-                        >Additional Notes:</Text>
-                    <TextInput
-                        value={this.state.notes}
-                        multiline={true}
-                        numberOfLines={5}
-                        onChangeText={(notes) => this.setState({notes})}
-                        style={styles.input}/>
-                </View>
-                <TouchableOpacity style={ styles.buttonContainer }>
-                    <Button
-                    color="black"
-                    title="Post"
-                    onPress={() => {
-                        this.submitPhoto()
-                    }}></Button>
-                </TouchableOpacity>   
-                <KeyboardSpacer/>                      
+                        </View>
+                    </View>                
+                    <View style={ styles.questionContainer }>
+                        <Text style={ styles.text }>Check all that apply</Text>
+                        <View>
+                        <CheckBox
+                            label='I did not wash my face today.'
+                            style={ styles.label }
+                            onChange={(checked) => this.setState({question1: !checked})}
+                            uncheckedImage={require('../assets/icons/circle.png')}
+                            checkedImage={require('../assets/icons/checkedGreen.png')}
+                            />
+                        </View>
+                        <View style={ styles.checkboxContainer }>
+                        <CheckBox
+                            label='I did not use acne products today.'
+                            onChange={(checked) => this.setState({question2: !checked})}
+                            uncheckedImage={require('../assets/icons/circle.png')}
+                            checkedImage={require('../assets/icons/checkedGreen.png')}
+                            />
+                        </View>
+                        <View style={ styles.checkboxContainer }>
+                        <CheckBox
+                            label='I had more sun exposure than usual.'
+                            onChange={(checked) => this.setState({question3: !checked})}
+                            uncheckedImage={require('../assets/icons/circle.png')}
+                            checkedImage={require('../assets/icons/checkedGreen.png')}
+                            />
+                        </View>
+                        <View style={ styles.checkboxContainer }>
+                        <CheckBox
+                            label='I worked out/sweat today.'
+                            onChange={(checked) => this.setState({question4: !checked})}
+                            uncheckedImage={require('../assets/icons/circle.png')}
+                            checkedImage={require('../assets/icons/checkedGreen.png')}
+                            />
+                        </View>
+                        <View style={ styles.checkboxContainer }>
+                        <CheckBox
+                            label='I ate sugary foods or dairy today.'
+                            onChange={(checked) => this.setState({question5: !checked})}
+                            uncheckedImage={require('../assets/icons/circle.png')}
+                            checkedImage={require('../assets/icons/checkedGreen.png')}
+                            />
+                        </View>
+                        <View style={ styles.checkboxContainer }>
+                        <CheckBox
+                            label='I have been stressed today.'
+                            onChange={(checked) => this.setState({question6: !checked})}
+                            uncheckedImage={require('../assets/icons/circle.png')}
+                            checkedImage={require('../assets/icons/checkedGreen.png')}
+                            />
+                        </View>
+                    </View >
+                    <View style={ styles.notesContainer }>
+                        <Text style={ styles.text }>
+                            Additional Notes:
+                        </Text>
+                        <TextInput
+                            value={this.state.notes}
+                            multiline={true}
+                            numberOfLines={5}
+                            onChangeText={(notes) => this.setState({notes})}
+                            style={styles.input}/>
+                            <KeyboardSpacer/> 
+                    </View> 
+                    <TouchableOpacity style={ styles.buttonContainer }>
+                        <Button
+                        color="black"
+                        title="Post"
+                        onPress={() => {
+                            this.submitPhoto()
+                        }}></Button>
+                    </TouchableOpacity>   
+                     
+                </View>                    
+            </ScrollView>
             </View>
-        </ScrollView>
+        
             
         );
     }
@@ -159,14 +165,23 @@ var styles = StyleSheet.create({
         backgroundColor: '#f8f2f2',
         justifyContent: 'center'
     },
+    subContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        paddingTop: 30,
+        justifyContent: 'center'
+    },
     sectionContainer: {
         flex: 1,
         flexDirection: 'row',
-        padding: 10
+        paddingTop: 20
     },
     ratingContainer: {
         flex: 1,
         flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     photoContainer: {
         flex: 1, 
@@ -180,7 +195,7 @@ var styles = StyleSheet.create({
     },
     checkboxContainer: {
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     notesContainer: {
         flex: 2,
@@ -199,23 +214,28 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
-        fontSize: 18,
-        paddingBottom: 5,
+        fontSize: 20,
+        paddingBottom: 10,
     },
     button: {
         backgroundColor: 'transparent'
     },
     input: {
-        height: 40,
+        height: 60,
         backgroundColor: '#f8f8ff',
         marginBottom: 20,
         marginTop: 20,
         padding: 5,
         borderRadius: 10,
+        fontSize: 16
     },
     image: {
         height: 80,
         width: 80,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: 'black',
+        paddingRight: 10,
     },
     label: {
         fontSize: 16,

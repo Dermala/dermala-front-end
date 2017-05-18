@@ -31,6 +31,7 @@ class HomeScreen extends React.Component {
                     <View style={ styles.photoContainer }>
                         <TouchableHighlight 
                             style={ styles.icon }
+                            underlayColor= "transparent"
                             onPress={this._pickImage}>
                         <Image source={require('../assets/icons/camera-1.png')} />
                         </TouchableHighlight>
@@ -41,18 +42,23 @@ class HomeScreen extends React.Component {
                         />    
                     </View>
                     <View style={ styles.tipsContainer }>
-                        <View style={ styles.icon }>
+                        <TouchableHighlight 
+                            style={ styles.icon }
+                            underlayColor= "transparent"
+                            onPress={() => {
+                                navigate('Reminders')
+                            }}>
                             <Image
                                 source={require('../assets/icons/reminders.png')}
                             />
-                        </View>
+                        </TouchableHighlight>
                         <Button
                             style={ styles.button }
                             color='black'
                             title="Tips >"
                             onPress={() => {
                                 navigate('Reminders')
-                            }}></Button>
+                            }}/>
                     </View>
                 </View>               
                 <View style={ styles.progressContainer }>
@@ -90,11 +96,11 @@ class HomeScreen extends React.Component {
                     <Carousel
                         sliderWidth={50}
                         itemWidth={30}
-                        inactiveSlideScale={0.9}
+                        inactiveSlideScale={1}
                         inactiveSlideOpacity={1}
-                        enableMomentum={false}
+                        enableSnap={false}
+                        enableMomentum={true}
                         showsHorizontalScrollIndicator={false}
-                        snapOnAndroid={true}
                         removeClippedSubviews={false}
                         >
                     <View style={ styles.slideInnerContainer }>
@@ -187,7 +193,6 @@ class HomeScreen extends React.Component {
                             stroke="#EAEAEC"
                             strokeWidth="2"
                         />
-                        <Text>1</Text>
                         <Image
                             style={ styles.image }
                             source={require('../assets/images/Packet.png')}
@@ -217,9 +222,9 @@ class HomeScreen extends React.Component {
            aspect: [4, 3], 
         })
         .then(result => {
-            console.log('Picture Taken');
-            
-            const file = {
+            console.log(result);
+            if(!result.cancelled){
+              const file = {
                 uri: result.uri,
                 name: `${uuid()}.jpg`,
                 type: "image/jpeg"
@@ -241,9 +246,9 @@ class HomeScreen extends React.Component {
                     }
                     console.log(response);
                     this.props.navigation.navigate('PhotoNotes', { url: `https://d3olwvuk0x912i.cloudfront.net/${response.body.postResponse.key}` })
-                });
+                })  
+            }
         });
-
         }
 }
 
