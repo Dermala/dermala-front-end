@@ -18,14 +18,14 @@ class PhotoAlbumScreen extends React.Component {
         return (
             <View style={ styles.mainContainer }>
                 <TouchableHighlight 
-                            onPress={this._pickImage}
-                            underlayColor= "#f8f2f2"
-                            >
-                            <Image
-                                style={styles.button}
-                                source={require('../assets/icons/add.png')}
-                            />
-                        </TouchableHighlight>
+                    onPress={this._pickImage}
+                    underlayColor= "#f8f2f2"
+                    >
+                    <Image
+                        style={styles.button}
+                        source={require('../assets/icons/add.png')}
+                    />
+                </TouchableHighlight>
                 
             </View>
             
