@@ -18,6 +18,7 @@ class ReminderScreen extends React.Component {
                 style={ styles.mainContainer }
                 source={require('../assets/logo/Background Fade.png')}
                 >
+                <ScrollView>
                 <View style={ styles.stepContainerSmall }>
                     <Text style={ styles.header }>
                         How to get rid of acne in 5 steps with Dermala:
@@ -63,7 +64,9 @@ class ReminderScreen extends React.Component {
                         Repeat for at least 2 months to balance your skin and gut microbiome for a clear and beautiful complexion.
                     </Text>
                 </View>
+             </ScrollView>
              </Image>
+             
             </View>
         );
     }
@@ -80,15 +83,15 @@ var styles = StyleSheet.create({
         height: Dimensions.get('window').height,
     },
     stepContainerSmall: {
-        flex: .5,
+        flex: 1,
         flexDirection: 'row',
     },
     stepContainerMed: {
-        flex: .7,
+        flex: 1,
         flexDirection: 'row',
     },
     stepContainerLrg: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'row',
     },
     image: {

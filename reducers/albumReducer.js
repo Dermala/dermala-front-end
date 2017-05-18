@@ -1,5 +1,6 @@
 const initState = {
     loadingPhoto: false,
+    photos: []
 }
 
 const albumReducer = (state = initState, action) => {

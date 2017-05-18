@@ -3,7 +3,8 @@ import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button  } f
 
  export default class CreateAccountScreen extends Component {
      static navigationOptions = {
-         title: 'Welcome'
+         title: 'Welcome',
+         backgroundColor: '#dee5c9'
      };
    render() {
        const { navigate } = this.props.navigation;
