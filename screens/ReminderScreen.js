@@ -85,14 +85,17 @@ var styles = StyleSheet.create({
     stepContainerSmall: {
         flex: 1,
         flexDirection: 'row',
+        paddingBottom: 10
     },
     stepContainerMed: {
-        flex: 1,
-        flexDirection: 'row',
-    },
-    stepContainerLrg: {
         flex: 2,
         flexDirection: 'row',
+        paddingBottom: 10
+    },
+    stepContainerLrg: {
+        flex: 3,
+        flexDirection: 'row',
+        paddingBottom: 10
     },
     image: {
         flex: 1, 
@@ -105,8 +108,10 @@ var styles = StyleSheet.create({
     header: {
         backgroundColor: 'transparent',
         fontSize: 20,
+        fontWeight: 'bold',
         textAlign: 'center',
-        paddingLeft: 5
+        paddingTop: 10,
+        paddingLeft: 20
     },
     text: {
         flex: 5,
